@@ -1,0 +1,19 @@
+<div class="card">
+
+  <h3 class="card-title">{{ title }}</h3>
+
+  <p class="card-description">
+    {{ description }}
+  </p>
+
+  @if (tags?.length) {
+    <div class="card-tags">
+
+      @for (tag of tags; track tag) {
+        <app-tag [label]="tag"></app-tag>
+      }
+
+    </div>
+  }
+
+</div>

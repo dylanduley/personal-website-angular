@@ -1,0 +1,47 @@
+.header {
+  height: 64px;
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgb(39 55 119);
+  padding: 0 24px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand img {
+  display: block;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+
+  transition: color 0.2s ease;
+}
+
+.nav a:hover {
+  color: #93c5fd;
+}
+
+.nav a.active {
+  color: #60a5fa;
+}

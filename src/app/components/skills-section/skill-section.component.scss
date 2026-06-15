@@ -1,0 +1,55 @@
+.skills-section {
+  padding: 5rem 0;
+  background-color: #1e222b;
+
+  background-image: radial-gradient(rgb(230 230 230 / 0.3) 1px, transparent 1%);
+  background-size: 40px 40px;
+  background-attachment: fixed;
+
+  color: #ffffff;
+
+  border-bottom: 1px solid #a238f8;
+  box-shadow: 0 8px 12px -6px rgba(56, 189, 248, 0.6);
+}
+
+.container {
+  width: min(1200px, 90%);
+  margin: 0 auto;
+}
+
+.section-header {
+  text-align: left;
+
+  margin-bottom: 4rem;
+
+  display: flex;
+  flex-direction: column;
+
+  max-width: 700px;
+}
+
+.section-header .eyebrow {
+  color: #38bdf8;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.85rem;
+}
+
+.section-header h2 {
+  font-size: 3rem;
+  color: #f9fafb;
+  margin: 1rem 0;
+}
+
+.section-header p {
+  color: #cbd5e1;
+  max-width: 600px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 1rem;
+}

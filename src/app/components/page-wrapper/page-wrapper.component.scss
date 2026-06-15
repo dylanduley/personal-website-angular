@@ -1,0 +1,23 @@
+.layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #132943;
+
+  background-image:
+    linear-gradient(
+      90deg,
+      rgb(0 165 255 / 0.08) 2px,
+      transparent 1px
+    ),
+    linear-gradient(
+      rgb(0 165 255 / 0.08) 2px,
+      transparent 1px
+    );
+
+  background-size: 40px 40px;
+}
+
+.content {
+  flex: 1;
+}

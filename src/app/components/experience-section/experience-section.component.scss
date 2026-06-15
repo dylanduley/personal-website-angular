@@ -1,0 +1,116 @@
+.experience-section {
+  position: relative;
+  padding: 5rem 1.5rem;
+  color: #f8f5ee;
+
+  background:
+    radial-gradient(circle at top, #302635 0%, #090618 50%, #03020a 100%);
+  border-bottom: 1px solid #2143b6;
+}
+
+.experience-hero-text {
+  padding-bottom: 3rem;
+}
+
+.experience-label {
+  display: flex;
+  justify-content: center;
+  color: #38bdf8;
+  font-size: 0.8rem;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+}
+
+.experience-hero-text h2 {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: #ffffff;
+}
+
+.experience-hero-text p {
+  max-width: 650px;
+  margin: auto;
+  color: #cbd5e1;
+  line-height: 1.8;
+}
+
+.timeline {
+  max-width: 900px;
+  margin: 0 auto;
+
+  padding-left: 2rem;
+
+  border-left: 2px solid rgba(125, 211, 252, 0.2);
+}
+
+.experience-item {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 1.25rem;
+
+  margin-bottom: 2.5rem;
+}
+
+.logo {
+  flex-shrink: 0;
+
+  width: 54px;
+  height: 54px;
+
+  border-radius: 12px;
+
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+}
+
+.logo img {
+  width: 70%;
+  height: 70%;
+  object-fit: contain;
+
+  filter: brightness(1.1);
+}
+
+.content {
+  max-width: 700px;
+}
+
+.role {
+  font-size: 1.25rem;
+  margin: 0;
+  color: #ffffff;
+}
+
+.company {
+  display: block;
+  margin-top: 0.3rem;
+
+  color: #38bdf8;
+  font-size: 0.95rem;
+}
+
+.period {
+  display: block;
+  margin-top: 0.25rem;
+
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+
+  color: rgba(248, 245, 238, 0.5);
+}
+
+.description {
+  margin-top: 0.75rem;
+  line-height: 1.6;
+
+  color: rgba(248, 245, 238, 0.85);
+}

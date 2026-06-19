@@ -4,6 +4,7 @@ import {HeroComponent} from '../../components/hero/hero.component';
 import {SkillSectionComponent} from '../../components/skills-section/skill-section.component';
 import {ProjectSectionComponent} from '../../components/project-section/project-section.component';
 import {ExperienceSectionComponent} from '../../components/experience-section/experience-section.component';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home',
@@ -17,4 +18,10 @@ import {ExperienceSectionComponent} from '../../components/experience-section/ex
   ],
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent {}
+export class HomeComponent {
+  constructor(private titleService: Title) {}
+
+  ngOnInit(): void {
+    this.titleService.setTitle('Dylan Duley');
+  }
+}

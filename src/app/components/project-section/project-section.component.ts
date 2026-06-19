@@ -11,7 +11,7 @@ export class ProjectSectionComponent {
     {
       title: 'Titanium — Life Insurance Policy Management',
       category: 'Angular frontend and Spring backend',
-      description: 'Collaborated with a team to build a modern, responsive frontend for managing life insurance policies. Developed dashboards, streamlined user workflows, and implemented complex, API-driven forms with robust validation to deliver a seamless user experience. Designed and implemented backend services for insurance policy lifecycle management. Built APIs, created services, and handled secure data processing and business logic.',
+      description: 'Developed a responsive frontend for managing life insurance policies, including dashboards and API-driven forms with validation. Designed and implemented backend services for insurance policy lifecycle management, including APIs, services, and secure data processing.',
       image: '/assets/images/titanium.png'
     },
     {

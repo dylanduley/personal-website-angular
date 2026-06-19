@@ -1,9 +1,13 @@
 import { Component } from '@angular/core';
+import {SectionHeaderComponent} from '../section-header/section-header.component';
 
 @Component({
   selector: 'app-project-section',
   standalone: true,
   templateUrl: './project-section.component.html',
+  imports: [
+    SectionHeaderComponent
+  ],
   styleUrls: ['./project-section.component.scss']
 })
 export class ProjectSectionComponent {

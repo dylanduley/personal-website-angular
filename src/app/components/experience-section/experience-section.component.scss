@@ -8,32 +8,11 @@
   border-bottom: 1px solid #2143b6;
 }
 
-.experience-hero-text {
-  padding-bottom: 3rem;
-}
-
-.experience-label {
+app-section-header {
   display: flex;
+  text-align: center;
   justify-content: center;
-  color: #38bdf8;
-  font-size: 0.8rem;
-  letter-spacing: 6px;
-  text-transform: uppercase;
-}
-
-.experience-hero-text h2 {
-  display: flex;
-  justify-content: center;
-  margin: 1rem 0;
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  color: #ffffff;
-}
-
-.experience-hero-text p {
-  max-width: 650px;
-  margin: auto;
-  color: #cbd5e1;
-  line-height: 1.8;
+  padding-bottom: 2rem;
 }
 
 .timeline {

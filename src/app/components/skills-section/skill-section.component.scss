@@ -17,35 +17,9 @@
   margin: 0 auto;
 }
 
-.section-header {
-  text-align: left;
-
-  margin-bottom: 4rem;
-
+app-section-header {
   display: flex;
-  flex-direction: column;
-
-  max-width: 700px;
-}
-
-.section-header .eyebrow {
-  color: #38bdf8;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-size: 0.85rem;
-}
-
-.section-header h2 {
-  font-size: 3rem;
-  color: #f9fafb;
-  margin: 1rem 0;
-}
-
-.section-header p {
-  color: #cbd5e1;
-  max-width: 600px;
-  line-height: 1.6;
-  margin: 0;
+  padding-bottom: 2rem;
 }
 
 .skills-grid {

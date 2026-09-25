@@ -1,7 +1,15 @@
 @font-face {
   font-family: 'Inter';
-  src: url('/assets/font/InterVariable.woff2') format('woff2');
+  src: url('/assets/font/InterVariable-latin.woff2') format('woff2');
   font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Caveat';
+  src: url('/assets/font/Caveat-latin.woff2') format('woff2');
+  font-weight: 400 700;
   font-style: normal;
   font-display: swap;
 }

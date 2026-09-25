@@ -1,18 +1,23 @@
 .hero-backdrop {
+  /* light mode: let the daylight through, keep a soft wash behind the text */
+  --hero-scrim: linear-gradient(100deg, rgb(10 14 23 / 0.5) 0%, rgb(10 14 23 / 0.22) 45%, rgb(10 14 23 / 0) 100%);
+  --hero-top: linear-gradient(to bottom, rgb(10 14 23 / 0.3) 0%, transparent 25%);
+  --hero-scrim-sm: linear-gradient(rgb(10 14 23 / 0.38), rgb(10 14 23 / 0.45));
+
   position: relative;
   overflow: hidden;
   isolation: isolate;
   border-bottom: 3px solid var(--ink);
 
   background:
-    linear-gradient(100deg, rgba(10, 14, 23, 0.72) 0%, rgba(10, 14, 23, 0.45) 45%, rgba(10, 14, 23, 0.15) 100%),
-    linear-gradient(to bottom, rgba(10, 14, 23, 0.35) 0%, transparent 30%),
+    var(--hero-scrim),
+    var(--hero-top),
     url('/assets/images/web/hero-beach.webp') center 35% / cover no-repeat,
     var(--navy);
 
   @media (max-width: 800px) {
     background:
-      linear-gradient(rgba(10, 14, 23, 0.55), rgba(10, 14, 23, 0.6)),
+      var(--hero-scrim-sm),
       url('/assets/images/web/hero-beach-sm.webp') center / cover no-repeat,
       var(--navy);
   }
@@ -34,5 +39,38 @@
     mask-image: linear-gradient(to top, #000 0%, transparent 60%);
     pointer-events: none;
     z-index: -1;
+  }
+
+  /* dusk photo for dark mode, faded in on top of the daytime one */
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    pointer-events: none;
+    background:
+      linear-gradient(100deg, rgb(8 14 28 / 0.7) 0%, rgb(12 22 42 / 0.4) 45%, rgb(18 32 54 / 0.1) 100%),
+      linear-gradient(to bottom, rgb(8 14 28 / 0.5) 0%, transparent 30%, transparent 75%, rgb(8 14 28 / 0.45) 100%),
+      var(--hero-dusk, none) center 50% / cover no-repeat,
+      var(--navy);
+
+    @media (max-width: 800px) {
+      background:
+        linear-gradient(rgb(8 14 28 / 0.4), rgb(12 22 42 / 0.55)),
+        var(--hero-dusk-sm, none) center 35% / cover no-repeat,
+        var(--navy);
+    }
+  }
+}
+
+// only set in dark mode so light-mode visitors never download it
+:host-context([data-theme='dark']) .hero-backdrop {
+  --hero-dusk: url('/assets/images/web/hero-dusk.webp');
+  --hero-dusk-sm: url('/assets/images/web/hero-dusk-sm.webp');
+
+  &::after {
+    opacity: 1;
   }
 }

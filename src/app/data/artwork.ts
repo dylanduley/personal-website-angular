@@ -12,14 +12,14 @@ export const ARTWORKS: Artwork[] = [
     title: 'Portrait during the fall',
     medium: 'Digital painting',
     imageUrl: 'assets/images/art/painting-1.jpg',
-    note: 'soft light, one pop of color'
+    note: 'desaturated tones contrasting with a vivid red apple'
   },
   {
     id: 2,
     title: 'Early morning by the beach',
     medium: 'Digital painting',
     imageUrl: 'assets/images/art/painting-2.jpg',
-    note: 'playing with bokeh + cool tones'
+    note: 'bokeh effect along with cooler tones'
   },
   {
     id: 3,

@@ -1,0 +1,16 @@
+.banner-art {
+  display: block;
+  width: 420px;
+  max-width: 100%;
+  height: auto;
+  filter: drop-shadow(6px 6px 0 rgb(10 14 23 / 0.6));
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px) scale(1.02);
+  }
+}
+
+#art {
+  --label-color: var(--c-yellow);
+}

@@ -1,47 +1,195 @@
-.header {
-  height: 64px;
-  color: white;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: rgb(112 72 94);
-  padding: 0 24px;
+:host {
+  display: block;
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 1000;
 }
 
-.brand {
+.header {
+  position: relative;
+  height: var(--header-h);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 28px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+
+  @media (max-width: 768px) {
+    padding: 0 16px;
+  }
+}
+
+:host(.is-scrolled) .header {
+  background: rgba(10, 14, 23, 0.62);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+.header-left,
+.header-right,
+.nav-desktop {
   display: flex;
   align-items: center;
+}
+
+.header-right,
+.nav-desktop {
   gap: 12px;
 }
 
-.brand img {
-  display: block;
+.brand-link {
+  display: inline-flex;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+
+  &:hover {
+    transform: translateX(2px);
+  }
 }
 
-.logo {
-  font-size: 20px;
-  font-weight: 700;
+.nav-desktop {
+  @media (max-width: 768px) {
+    display: none;
+  }
 }
 
-.nav {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
+/* The link/button itself never moves, only .btn-text does. The ::after pad
+   covers the area it moves through so clicks on the edge still count. */
+.nav-button {
+  --btn-ink: #0a0e17;
+  --btn-bg: #ffffff;
+  --btn-fg: #0a0e17;
+  --btn-hover: var(--c-cyan);
 
-.nav a {
-  color: white;
+  position: relative;
+  display: inline-block;
+  padding: 0;
+  border: 0;
+  border-radius: 8px;
+  background: var(--btn-ink);
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
   text-decoration: none;
-  font-weight: 500;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 
-  transition: color 0.2s ease;
+  &::after {
+    content: '';
+    position: absolute;
+    inset: -0.45em -0.2em -0.2em -0.35em;
+    z-index: 3;
+  }
+
+  .btn-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.45rem 1.1rem;
+    border: 3px solid var(--btn-ink);
+    border-radius: 8px;
+    background: var(--btn-bg);
+    color: var(--btn-fg);
+    transform: translate(-0.15em, -0.25em);
+    transition: transform 0.15s var(--spring), background-color 0.2s ease, color 0.2s ease;
+  }
+
+  &:hover .btn-text {
+    transform: translate(-0.2em, -0.35em);
+    background: var(--btn-hover);
+    color: #000;
+  }
+
+  &:active .btn-text {
+    transform: none;
+    transition: transform 0.05s ease;
+  }
+
+  &.active .btn-text {
+    background: var(--c-cyan);
+    color: #000;
+    box-shadow: inset -4px -4px 0 rgba(0, 0, 0, 0.15);
+  }
+
+  &.mobile {
+    display: block;
+    width: 100%;
+
+    .btn-text {
+      justify-content: flex-start;
+      padding: 0.75rem 1.2rem;
+      font-size: 1.05rem;
+    }
+  }
 }
 
-.nav a:hover {
-  color: #93c5fd;
+.icon-button .btn-text {
+  width: 50px;
+  height: 40px;
+  padding: 0;
+  font-size: 1.1rem;
 }
 
-.nav a.active {
-  color: #60a5fa;
+.theme-toggle-btn {
+  --btn-hover: var(--c-yellow);
+
+  app-icon {
+    transition: transform 0.5s var(--spring);
+  }
+}
+
+.hamburger {
+  display: none;
+
+  @media (max-width: 768px) {
+    display: inline-block;
+  }
+}
+
+:host-context([data-theme='dark']) {
+  .nav-button {
+    --btn-ink: #000;
+    --btn-bg: #1a1e29;
+    --btn-fg: #f8f5ee;
+  }
+
+  .theme-toggle-btn {
+    --btn-fg: var(--c-yellow);
+
+    app-icon {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+.nav-mobile {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: rgba(10, 14, 23, 0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 3px solid var(--c-cyan);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+
+  &.is-open {
+    max-height: 320px;
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.nav-mobile-container {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 22px 24px;
 }

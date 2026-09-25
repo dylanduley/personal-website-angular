@@ -1,0 +1,17 @@
+<section class="section section--dots section--inked sketchbook">
+  <div class="container">
+    <app-section-header
+      label="Off the clock"
+      header="From the sketchbook"
+      description="A few recent masterpieces ＼(＾▽＾)／"
+    ></app-section-header>
+
+    <app-art-gallery [limit]="limit"></app-art-gallery>
+
+    <div class="cta">
+      <a class="comic-btn" routerLink="/portfolio" fragment="art">
+        <span>See the full gallery <app-icon name="arrow-right" /></span>
+      </a>
+    </div>
+  </div>
+</section>

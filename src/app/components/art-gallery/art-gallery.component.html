@@ -1,0 +1,32 @@
+<ul class="gallery">
+  @for (art of artworks(); track art.id) {
+    <li class="piece">
+      <button type="button" class="frame" (click)="open(art)" [attr.aria-label]="'View ' + art.title">
+        <span class="tape" aria-hidden="true"></span>
+        <img [src]="art.imageUrl" [alt]="art.title + ', ' + art.medium" loading="lazy" decoding="async" />
+        <span class="caption">
+          <span class="title">{{ art.title }}</span>
+          <span class="medium">{{ art.medium }}</span>
+        </span>
+      </button>
+      @if (art.note) {
+        <span class="note hand">{{ art.note }}</span>
+      }
+    </li>
+  }
+</ul>
+
+@if (selected(); as art) {
+  <div class="lightbox" role="dialog" aria-modal="true" [attr.aria-label]="art.title" (click)="close()">
+    <figure class="comic-card lightbox-card" (click)="$event.stopPropagation()">
+      <button type="button" class="close" (click)="close()" aria-label="Close">
+        <app-icon name="xmark" />
+      </button>
+      <img [src]="art.imageUrl" [alt]="art.title" decoding="async" />
+      <figcaption>
+        <strong>{{ art.title }}</strong>
+        <span>{{ art.medium }}</span>
+      </figcaption>
+    </figure>
+  </div>
+}

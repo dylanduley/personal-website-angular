@@ -1,48 +1,25 @@
-<section class="portfolio">
+<section class="section" id="projects">
+  <div class="container">
+    <app-section-header
+      label="Code"
+      header="Featured Projects"
+      description="Exciting projects that I have worked on for both work and myself."
+    ></app-section-header>
 
-  <div class="portfolio-container">
-    <div class="portfolio-hero">
-
-      <img
-        class="portfolio-hero-image"
-        src="/assets/images/developer.png"
-        alt="Developer Visual"
-      />
-
-      <app-section-header label="PORTFOLIO"
-                          header="Featured Projects"
-                          description="Exciting projects that I have worked on for both work and for personal enjoyment."
-      ></app-section-header>
-
-    </div>
-
-    <!-- PROJECTS -->
     <div class="project-showcase">
-
       @for (project of projects; track project.title) {
-
-        <article class="project-panel">
-
+        <article class="comic-card comic-card--hover project-panel">
           <div class="project-media">
-            <img [src]="project.image" [alt]="project.title" />
+            <img [src]="project.image" [alt]="project.title" loading="lazy" decoding="async" />
           </div>
 
           <div class="project-content">
-
-            <span class="project-number">0{{ $index + 1 }}</span>
-
+            <span class="tag">{{ project.category }}</span>
             <h3>{{ project.title }}</h3>
-
             <p>{{ project.description }}</p>
-
           </div>
-
         </article>
-
       }
-
     </div>
-
   </div>
-
 </section>

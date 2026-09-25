@@ -1,0 +1,81 @@
+.banner {
+  position: relative;
+  padding: calc(var(--header-h) + 4.5rem) 0 5.5rem;
+  color: #f8f5ee;
+  background-color: var(--navy);
+  background-image:
+    radial-gradient(rgb(255 255 255 / 0.09) 1.5px, transparent 1.6px),
+    radial-gradient(circle at 85% 20%, rgb(56 189 248 / 0.25), transparent 45%),
+    radial-gradient(circle at 10% 90%, rgb(168 85 247 / 0.22), transparent 45%);
+  background-size: 18px 18px, auto, auto;
+  overflow: hidden;
+}
+
+.banner-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2.5rem;
+}
+
+.banner-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 640px;
+}
+
+h1 {
+  margin: 1.2rem 0 0.8rem;
+  font-size: clamp(2.4rem, 6vw, 3.8rem);
+  font-weight: 900;
+  color: #fff;
+  text-shadow: 3px 3px 0 var(--ink);
+}
+
+p {
+  margin: 0;
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: #dbe4ef;
+}
+
+.banner-aside:empty {
+  display: none;
+}
+
+.banner-edge {
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 36px;
+  display: block;
+
+  .fill {
+    fill: var(--bg);
+    transition: fill 0.3s ease;
+  }
+
+  .line {
+    fill: none;
+    stroke: var(--ink);
+    stroke-width: 3;
+    vector-effect: non-scaling-stroke;
+  }
+}
+
+@media (max-width: 800px) {
+  .banner {
+    padding: calc(var(--header-h) + 3rem) 0 4.5rem;
+  }
+
+  .banner-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .banner-text {
+    align-items: center;
+  }
+}

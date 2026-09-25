@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import {PageWrapperComponent} from '../../components/page-wrapper/page-wrapper.component';
-import {HeroComponent} from '../../components/hero/hero.component';
-import {SkillSectionComponent} from '../../components/skills-section/skill-section.component';
-import {ProjectSectionComponent} from '../../components/project-section/project-section.component';
-import {ExperienceSectionComponent} from '../../components/experience-section/experience-section.component';
-import { Title } from '@angular/platform-browser';
+import { PageWrapperComponent } from '../../components/page-wrapper/page-wrapper.component';
+import { HeroComponent } from '../../components/hero/hero.component';
+import { SkillSectionComponent } from '../../components/skills-section/skill-section.component';
+import { ExperienceSectionComponent } from '../../components/experience-section/experience-section.component';
+import { HeaderComponent } from '../../components/header/header.component';
+import { FooterComponent } from '../../components/footer/footer.component';
 
 @Component({
   selector: 'app-home',
@@ -13,15 +13,10 @@ import { Title } from '@angular/platform-browser';
     PageWrapperComponent,
     HeroComponent,
     SkillSectionComponent,
-    ProjectSectionComponent,
     ExperienceSectionComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent {
-  constructor(private titleService: Title) {}
-
-  ngOnInit(): void {
-    this.titleService.setTitle('Dylan Duley');
-  }
-}
+export class HomeComponent {}

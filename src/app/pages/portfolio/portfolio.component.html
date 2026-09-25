@@ -1,0 +1,26 @@
+<app-page-wrapper>
+  <app-header></app-header>
+
+  <app-page-banner
+    label="Portfolio"
+    title="Things I've made"
+    subtitle="Code I've shipped at work and for fun, plus the paintings and sketches when I finally have free time. ╰(▔∀▔)╯"
+  >
+    <img class="banner-art" src="/assets/images/web/developer-banner.webp" alt="Developer at a desk illustration" width="420" height="230" decoding="async" />
+  </app-page-banner>
+
+  <app-project-section></app-project-section>
+
+  <section class="section section--dots section--inked" id="art">
+    <div class="container">
+      <app-section-header
+        label="Art"
+        header="Sketchbook"
+        description="Paintings and sketches that I have made. I plan to add more soon so stay tuned!"
+      ></app-section-header>
+      <app-art-gallery></app-art-gallery>
+    </div>
+  </section>
+
+  <app-footer></app-footer>
+</app-page-wrapper>

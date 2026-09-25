@@ -1,38 +1,38 @@
+:host {
+  display: block;
+  height: 100%;
+}
+
 .card {
   height: 100%;
-  background: rgb(46 50 58);
-  border: 0.1rem solid rgb(47 60 67);
-  border-radius: 1rem;
-  padding: 1.5rem;
-  box-sizing: border-box;
-  box-shadow:
-    inset 0 3px 0 #38bdf8,
-    inset 0 6px 0 #1d9bf0,
-    inset 0 9px 0 #0ea5e9;
+  padding: 1.9rem 1.6rem 1.6rem;
+  overflow: hidden;
+}
+
+.card-accent {
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 10px;
+  background: var(--accent, var(--c-cyan));
+  border-bottom: 3px solid var(--line);
 }
 
 .card-title {
-  margin: 0 0 0.5rem 0;
-  font-size: 1.2rem;
-  color: #ffffff;
+  margin: 0 0 0.6rem;
+  font-size: 1.25rem;
+  font-weight: 800;
 }
 
 .card-description {
-  color: #b8beca;
-  font-size: 0.95rem;
-  line-height: 1.5;
   margin: 0;
+  color: var(--text-muted);
+  font-size: 0.97rem;
+  line-height: 1.6;
 }
 
 .card-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin-top: 1rem;
-}
-
-@media (max-width: 800px) {
-  .card {
-    height: auto;
-  }
+  margin-top: 1.25rem;
 }

@@ -1,0 +1,22 @@
+<section class="banner">
+  <div class="container banner-inner">
+    <div class="banner-text">
+      @if (label) {
+        <span class="sticker">{{ label }}</span>
+      }
+      <h1>{{ title }}</h1>
+      @if (subtitle) {
+        <p>{{ subtitle }}</p>
+      }
+    </div>
+
+    <div class="banner-aside">
+      <ng-content></ng-content>
+    </div>
+  </div>
+
+  <svg class="banner-edge" viewBox="0 0 1200 36" preserveAspectRatio="none" aria-hidden="true">
+    <path class="fill" d="M0 10 C 110 30, 220 0, 330 16 S 540 34, 650 14 S 860 0, 970 18 S 1140 28, 1200 8 V36 H0 Z" />
+    <path class="line" d="M0 10 C 110 30, 220 0, 330 16 S 540 34, 650 14 S 860 0, 970 18 S 1140 28, 1200 8" />
+  </svg>
+</section>

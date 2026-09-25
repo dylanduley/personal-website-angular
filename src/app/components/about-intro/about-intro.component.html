@@ -1,0 +1,38 @@
+<section class="section intro">
+  <div class="container intro-grid">
+    <figure class="portrait">
+      <span class="tape" aria-hidden="true"></span>
+      <img src="assets/images/profile.jpeg" alt="Dylan Duley" width="320" height="320" decoding="async" />
+      <figcaption class="hand">Perfectionist and easily distracted</figcaption>
+    </figure>
+
+    <div class="comic-card bubble">
+      <h2>Hiya, I'm <span class="marker">Dylan</span>.</h2>
+      <p>
+        I'm a senior full stack software engineer at <strong>LIDP Consulting Services</strong>, where I work on the frontend and backend for a life insurance platform called Titanium.
+        I really enjoy the entire process of creating and iterating on applications, especially with regards to improving efficency and user experience.
+      </p>
+      <p>
+        I'm working toward my <strong>B.S. in Computer Science at the University of Florida</strong> while working full time (I'm pretty tired lol), after
+        finishing my A.A. and A.S. at State College of Florida. Along the way I earned LOMA's FLMI, ACS, AIRC and
+        ALMI designations, which help me understand the insurance industry I build software for.
+      </p>
+      <p>
+        When I'm done with work, I really enjoy drawing and painting so I included some of my work here for you all to check out. (´｡• ᵕ •｡`)
+      </p>
+      <p>
+        I also have a number of hyper fixations such as Urban Planning, Splatoon, Trains (we need high speed rail pleaseeee), Sonic the Hedgehog and going to the gym. (Yes my interests are unique hehe)
+      </p>
+    </div>
+  </div>
+
+  <ul class="container facts">
+    @for (fact of facts; track fact.label) {
+      <li class="comic-card comic-card--hover fact">
+        <app-icon [name]="fact.icon" />
+        <strong>{{ fact.value }}</strong>
+        <span>{{ fact.label }}</span>
+      </li>
+    }
+  </ul>
+</section>

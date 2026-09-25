@@ -1,16 +1,24 @@
 <footer class="footer">
-  <div class="footer-social-links">
-    <a href="https://linkedin.com/in/dylanduley" target="_blank" aria-label="LinkedIn">
-      <i class="fab fa-linkedin"></i>
-    </a>
+  <svg class="footer-wave" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true">
+    <path class="fill" d="M0 22 C 90 4, 170 34, 260 18 S 430 2, 520 20 S 700 36, 790 16 S 960 4, 1050 22 S 1160 30, 1200 14 V40 H0 Z" />
+    <path class="line" d="M0 22 C 90 4, 170 34, 260 18 S 430 2, 520 20 S 700 36, 790 16 S 960 4, 1050 22 S 1160 30, 1200 14" />
+  </svg>
 
-    <a href="https://github.com/dylanduley" target="_blank" aria-label="GitHub">
-      <i class="fab fa-github"></i>
-    </a>
+  <div class="footer-inner">
+    <span class="hand footer-sign">thanks for stopping by!</span>
 
-    <a href="https://gitlab.com/dylanduley" target="_blank" aria-label="Gitlab">
-      <i class="fab fa-gitlab"></i>
-    </a>
+    <div class="social-links">
+      <a href="https://linkedin.com/in/dylanduley" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <app-icon name="linkedin" />
+      </a>
+      <a href="https://github.com/dylanduley" target="_blank" rel="noopener" aria-label="GitHub">
+        <app-icon name="github" />
+      </a>
+      <a href="https://gitlab.com/dylanduley" target="_blank" rel="noopener" aria-label="Gitlab">
+        <app-icon name="gitlab" />
+      </a>
+    </div>
+
+    <small>© {{ year }} Dylan Duley</small>
   </div>
-  <span>© 2026 Dylan Duley</span>
 </footer>

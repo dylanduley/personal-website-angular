@@ -247,16 +247,25 @@ a {
     font-size: 1.2rem;
     color: var(--ink);
     background: #fff;
-    border: 2.5px solid var(--ink);
+    border: 3px solid var(--ink);
     border-radius: 50%;
     box-shadow: 3px 3px 0 var(--ink);
     text-decoration: none;
     transition: transform 0.15s var(--spring), box-shadow 0.15s var(--spring), background-color 0.2s ease;
 
+    app-icon {
+      transition: transform 0.15s var(--spring);
+    }
+
+    /* only the icon scales: Firefox draws seams through scaled rounded borders */
     &:hover {
       background: var(--c-cyan);
-      transform: translate(-1px, -1px) scale(1.06);
+      transform: translate(-1px, -1px);
       box-shadow: 4px 4px 0 var(--ink);
+
+      app-icon {
+        transform: scale(1.12);
+      }
     }
 
     &:active {

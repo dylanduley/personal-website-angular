@@ -1,7 +1,7 @@
 .hero-backdrop {
   position: relative;
   overflow: hidden;
-  perspective: 600px;
+  isolation: isolate;
   border-bottom: 3px solid var(--ink);
 
   background:
@@ -29,9 +29,10 @@
       linear-gradient(to bottom, rgb(223 233 237 / 0.55) 1px, transparent 1px);
     background-size: 100px 100px;
     transform-origin: bottom center;
-    transform: rotateX(75deg);
+    /* perspective lives on the grid itself so Firefox doesn't draw it over the icons on hover */
+    transform: translateY(-31.25%) perspective(600px) translateY(31.25%) rotateX(75deg);
     mask-image: linear-gradient(to top, #000 0%, transparent 60%);
     pointer-events: none;
-    z-index: 0;
+    z-index: -1;
   }
 }

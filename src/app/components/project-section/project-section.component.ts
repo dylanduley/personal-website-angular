@@ -36,7 +36,7 @@ export class ProjectSectionComponent {
       description: 'A tiny social space for pixel doodles, inspired by Miiverse and Flipnote. Every post is hand-drawn on a 320×120 canvas, shared in themed plazas, and people can give their favorites a Yeah! There is also a daily prompt for everyone to draw.',
       image: '/assets/images/web/doodle-plaza.webp',
       github: 'https://github.com/dylanduley/doodle-plaza',
-      site: 'doodle-plaza.vercel.app'
+      site: 'https://doodle-plaza.vercel.app/'
     },
     {
       title: 'Snake Game',

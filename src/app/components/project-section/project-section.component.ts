@@ -19,6 +19,12 @@ export class ProjectSectionComponent {
       image: '/assets/images/web/titanium.webp'
     },
     {
+      title: 'Doodle Plaza',
+      category: 'Social app',
+      description: 'A tiny social space for pixel doodles, inspired by Miiverse and Flipnote. Every post is hand-drawn on a 320×120 canvas, shared in themed plazas, and people can give their favorites a Yeah! There is also a daily prompt for everyone to draw.',
+      image: '/assets/images/web/doodle-plaza.webp'
+    },
+    {
       title: 'Super Mario Bros Clone',
       category: 'Python · Pygame',
       description: 'A simple recreation of Super Mario Bros physics built in Pygame. Implemented physics, level rendering, animations, collisions, and game state logic.',

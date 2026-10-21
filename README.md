@@ -1,59 +1,49 @@
-# App
+# personal-website-angular
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.13.
+My personal website. It's where I share my work as a full stack software engineer, my schooling, and the paintings and sketches I make in my free time.
 
-## Development server
+Built with Angular 21 and SCSS. The pages are prerendered at build time, and the site has a light and dark theme.
 
-To start a local development server, run:
+> The code is open source, but the art and images are not. See [License](#license).
 
-```bash
-ng serve
-```
+## Running it locally
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+You'll need Node.js and npm.
 
 ```bash
-ng generate component component-name
+npm install
+npm start
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Then open http://localhost:4200.
 
-```bash
-ng generate --help
-```
+## Other commands
 
-## Building
+| Command | What it does |
+| --- | --- |
+| `npm run build` | Production build, output goes to `dist/` |
+| `npm run watch` | Development build that rebuilds on changes |
+| `npm test` | Runs the unit tests |
+| `npm run serve:ssr:app` | Serves the production build with the Node server |
 
-To build the project run:
+## Project layout
 
-```bash
-ng build
-```
+- `src/app/pages` - the Home, About and Portfolio pages
+- `src/app/components` - the sections and pieces those pages are built from
+- `src/app/data` - the artwork list for the gallery
+- `src/app/services` - the light / dark theme
+- `src/styles.scss` - colors, fonts and the shared styles
+- `src/assets` - images and fonts
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## License
 
-## Running unit tests
+The code is under the [MIT License](LICENSE), so feel free to look around and borrow from it.
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+**The MIT License covers the code only. It does not cover any of the art or images.**
 
-```bash
-ng test
-```
+All photos, paintings, sketches, drawings, the logo and every other image in this repository (everything in `src/assets/images`) are © 2026 Dylan Duley. All rights reserved. They are not licensed for any use. You may not copy, download, edit, redistribute, use in your own projects, or use them to train AI models. If you fork or reuse this code, remove them and use your own images.
 
-## Running end-to-end tests
+Fonts and icons belong to their creators:
 
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- [Inter](https://rsms.me/inter/) and [Caveat](https://fonts.google.com/specimen/Caveat), SIL Open Font License 1.1
+- Icons from [Font Awesome Free](https://fontawesome.com/license/free), CC BY 4.0

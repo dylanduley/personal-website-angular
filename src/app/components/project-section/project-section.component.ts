@@ -20,15 +20,15 @@ export class ProjectSectionComponent {
     },
     {
       title: 'Doodle Plaza',
-      category: 'Social app',
+      category: 'React + Next.js',
       description: 'A tiny social space for pixel doodles, inspired by Miiverse and Flipnote. Every post is hand-drawn on a 320×120 canvas, shared in themed plazas, and people can give their favorites a Yeah! There is also a daily prompt for everyone to draw.',
       image: '/assets/images/web/doodle-plaza.webp'
     },
     {
-      title: 'Super Mario Bros Clone',
-      category: 'Python · Pygame',
-      description: 'A simple recreation of Super Mario Bros physics built in Pygame. Implemented physics, level rendering, animations, collisions, and game state logic.',
-      image: '/assets/images/web/mario.webp'
+      title: 'Snake Game',
+      category: 'Java',
+      description: 'A recreation of the classic Snake game, implemented in Java using JFrame and Canvas for the graphical interface.',
+      image: '/assets/images/web/snake.webp'
     },
     {
       title: 'My website',

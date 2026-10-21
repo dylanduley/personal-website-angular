@@ -10,7 +10,7 @@ import { RouterOutlet } from '@angular/router';
 })
 export class App {
   constructor() {
-    // Keep #anchor jumps from hiding under the fixed header
+    // offset anchor scrolling by the fixed header height
     inject(ViewportScroller).setOffset(() => {
       const header = typeof document !== 'undefined' ? document.querySelector('app-header .header') : null;
       return [0, (header?.getBoundingClientRect().height ?? 75) + 16];

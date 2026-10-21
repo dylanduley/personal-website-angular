@@ -53,8 +53,8 @@
   }
 }
 
-/* The link/button itself never moves, only .btn-text does. The ::after pad
-   covers the area it moves through so clicks on the edge still count. */
+// the link itself never moves, only .btn-text does. ::after covers the gap
+// so clicking right on the edge still navigates
 .nav-button {
   --btn-ink: #0a0e17;
   --btn-bg: #ffffff;

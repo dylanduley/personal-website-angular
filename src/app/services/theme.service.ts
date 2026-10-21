@@ -5,8 +5,6 @@ export type Theme = 'light' | 'dark';
 
 const STORAGE_KEY = 'theme';
 
-// index.html sets data-theme before first paint; this keeps it in sync.
-// Follows the OS setting until the user picks one.
 @Injectable({ providedIn: 'root' })
 export class ThemeService {
   private readonly doc = inject(DOCUMENT);
@@ -36,9 +34,7 @@ export class ThemeService {
     if (remember && this.isBrowser) {
       try {
         localStorage.setItem(STORAGE_KEY, theme);
-      } catch {
-        /* storage unavailable (private mode etc.) */
-      }
+      } catch {}
     }
   }
 

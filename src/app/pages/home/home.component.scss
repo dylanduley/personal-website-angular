@@ -1,5 +1,4 @@
 .hero-backdrop {
-  /* light mode: let the daylight through, keep a soft wash behind the text */
   --hero-scrim: linear-gradient(100deg, rgb(10 14 23 / 0.5) 0%, rgb(10 14 23 / 0.22) 45%, rgb(10 14 23 / 0) 100%);
   --hero-top: linear-gradient(to bottom, rgb(10 14 23 / 0.3) 0%, transparent 25%);
   --hero-scrim-sm: linear-gradient(rgb(10 14 23 / 0.38), rgb(10 14 23 / 0.45));
@@ -34,14 +33,13 @@
       linear-gradient(to bottom, rgb(223 233 237 / 0.55) 1px, transparent 1px);
     background-size: 100px 100px;
     transform-origin: bottom center;
-    /* perspective lives on the grid itself so Firefox doesn't draw it over the icons on hover */
+    // perspective on the grid itself, otherwise firefox draws it over the hero icons
     transform: translateY(-31.25%) perspective(600px) translateY(31.25%) rotateX(75deg);
     mask-image: linear-gradient(to top, #000 0%, transparent 60%);
     pointer-events: none;
     z-index: -1;
   }
 
-  /* dusk photo for dark mode, faded in on top of the daytime one */
   &::after {
     content: '';
     position: absolute;
@@ -65,7 +63,7 @@
   }
 }
 
-// only set in dark mode so light-mode visitors never download it
+// dark mode only, so the dusk photo isn't downloaded in light mode
 :host-context([data-theme='dark']) .hero-backdrop {
   --hero-dusk: url('/assets/images/web/hero-dusk.webp');
   --hero-dusk-sm: url('/assets/images/web/hero-dusk-sm.webp');

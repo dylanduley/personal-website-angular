@@ -1,5 +1,5 @@
 .footer {
-  --footer-bg: #cfe6dc;
+  --footer-bg: #d3e2db;
   --footer-text: var(--ink);
   --footer-muted: #34414f;
 
@@ -11,7 +11,7 @@
 
 :host-context([data-theme='dark']) .footer {
   --focus: var(--c-cyan);
-  --footer-bg: #13251f;
+  --footer-bg: #16221e;
   --footer-text: var(--on-dark);
   --footer-muted: var(--on-dark-muted);
 }

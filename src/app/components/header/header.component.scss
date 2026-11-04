@@ -1,7 +1,7 @@
 :host {
-  --header-bg: rgb(207 230 220 / 0.6);
+  --header-bg: rgb(211 226 219 / 0.6);
   --header-shadow: 0 4px 18px rgb(10 14 23 / 0.12);
-  --menu-bg: rgb(207 230 220 / 0.97);
+  --menu-bg: rgb(211 226 219 / 0.97);
   --menu-shadow: 0 10px 25px rgb(10 14 23 / 0.15);
 
   display: block;
@@ -193,9 +193,9 @@
 }
 
 :host-context([data-theme='dark']) {
-  --header-bg: rgb(19 37 31 / 0.6);
+  --header-bg: rgb(22 34 30 / 0.6);
   --header-shadow: 0 8px 24px rgb(0 0 0 / 0.5);
-  --menu-bg: rgb(19 37 31 / 0.97);
+  --menu-bg: rgb(22 34 30 / 0.97);
   --menu-shadow: 0 10px 25px rgb(0 0 0 / 0.6);
 
   .nav-button {

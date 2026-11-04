@@ -1,4 +1,4 @@
-import { Component, ElementRef, computed, input, signal, viewChild } from '@angular/core';
+import { Component, ElementRef, signal, viewChild } from '@angular/core';
 import { ARTWORKS, Artwork } from '../../data/artwork';
 import { IconComponent } from '../icon/icon.component';
 
@@ -9,12 +9,7 @@ import { IconComponent } from '../icon/icon.component';
   styleUrl: './art-gallery.component.scss',
 })
 export class ArtGalleryComponent {
-  readonly limit = input<number | null>(null);
-
-  readonly artworks = computed(() => {
-    const n = this.limit();
-    return n ? ARTWORKS.slice(0, n) : ARTWORKS;
-  });
+  readonly artworks = ARTWORKS;
 
   readonly selected = signal<Artwork | null>(null);
 

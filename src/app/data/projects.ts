@@ -5,7 +5,6 @@ export interface Project {
   image: string;
   github?: string;
   site?: string;
-  featured?: boolean;
 }
 
 export const PROJECTS: Project[] = [
@@ -15,7 +14,6 @@ export const PROJECTS: Project[] = [
     description:
       'Developed responsive frontend dashboards for managing policies and API-driven forms with validation. Implemented backend services for policy lifecycle management, including APIs, services, and secure data processing.',
     image: '/assets/images/web/titanium.webp',
-    featured: true,
   },
   {
     title: 'Doodle Plaza',
@@ -25,7 +23,6 @@ export const PROJECTS: Project[] = [
     image: '/assets/images/web/doodle-plaza.webp',
     github: 'https://github.com/dylanduley/doodle-plaza',
     site: 'https://doodle-plaza.vercel.app/',
-    featured: true,
   },
   {
     title: 'Snake Game',
@@ -34,7 +31,6 @@ export const PROJECTS: Project[] = [
       'A recreation of the classic Snake game, implemented in Java using JFrame and Canvas for the graphical interface.',
     image: '/assets/images/web/snake.webp',
     github: 'https://github.com/dylanduley/snake-game',
-    featured: true,
   },
   {
     title: 'My website',

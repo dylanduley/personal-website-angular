@@ -16,8 +16,7 @@ export const routes: Routes = [
     title: 'Dylan Duley',
     data: {
       seo: {
-        description:
-          'Dylan Duley, full stack software engineer and artist. Skills, featured projects and experience.',
+        description: 'Dylan Duley, full stack software engineer and artist. Skills and experience.',
       } satisfies RouteSeo,
     },
   },

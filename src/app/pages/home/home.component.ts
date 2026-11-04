@@ -2,7 +2,6 @@ import { DOCUMENT } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { HeroComponent } from '../../components/hero/hero.component';
 import { SkillSectionComponent } from '../../components/skills-section/skill-section.component';
-import { ProjectSectionComponent } from '../../components/project-section/project-section.component';
 import { ExperienceSectionComponent } from '../../components/experience-section/experience-section.component';
 
 const HERO_PRELOADS = [
@@ -26,12 +25,7 @@ const HERO_PRELOADS = [
 
 @Component({
   selector: 'app-home',
-  imports: [
-    HeroComponent,
-    SkillSectionComponent,
-    ProjectSectionComponent,
-    ExperienceSectionComponent,
-  ],
+  imports: [HeroComponent, SkillSectionComponent, ExperienceSectionComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })

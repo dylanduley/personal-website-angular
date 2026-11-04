@@ -1,4 +1,4 @@
-<section class="section" [class.section--inked]="featuredOnly()" id="projects">
+<section class="section" id="projects">
   <div class="container">
     <app-section-header
       label="Code"
@@ -7,7 +7,7 @@
     />
 
     <div class="project-showcase">
-      @for (project of projects(); track project.title) {
+      @for (project of projects; track project.title) {
         @let link = project.site ?? project.github;
         <article class="comic-card project-panel">
           @if (link) {
@@ -62,13 +62,5 @@
         </article>
       }
     </div>
-
-    @if (featuredOnly()) {
-      <div class="cta">
-        <a class="comic-btn" routerLink="/portfolio">
-          <span>See all projects <app-icon name="arrow-right" /></span>
-        </a>
-      </div>
-    }
   </div>
 </section>

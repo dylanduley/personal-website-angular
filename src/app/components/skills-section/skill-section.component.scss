@@ -4,14 +4,18 @@
   gap: 1.75rem;
 }
 
-app-card:nth-child(3n + 1) {
+app-card:nth-child(4n + 1) {
   --accent: var(--c-cyan);
 }
 
-app-card:nth-child(3n + 2) {
-  --accent: var(--c-green);
+app-card:nth-child(4n + 2) {
+  --accent: var(--c-seafoam);
 }
 
-app-card:nth-child(3n + 3) {
-  --accent: var(--c-purple);
+app-card:nth-child(4n + 3) {
+  --accent: var(--c-sun);
+}
+
+app-card:nth-child(4n + 4) {
+  --accent: var(--c-coral);
 }

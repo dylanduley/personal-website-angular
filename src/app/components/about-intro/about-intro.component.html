@@ -2,33 +2,45 @@
   <div class="container intro-grid">
     <figure class="portrait">
       <span class="tape" aria-hidden="true"></span>
-      <img src="assets/images/web/about-portrait.webp" alt="Dylan Duley" width="320" height="320" decoding="async" />
+      <img
+        src="/assets/images/web/about-portrait.webp"
+        alt="Dylan Duley"
+        width="320"
+        height="320"
+        decoding="async"
+      />
       <figcaption class="hand">Me hiking in New York</figcaption>
     </figure>
 
     <div class="comic-card bubble">
-      <h2>Hiya, I'm <span class="marker">Dylan</span>.</h2>
+      <h2>Hey, I'm <span class="marker">Dylan</span>.</h2>
       <p>
-        I'm a senior full stack software engineer at <strong>LIDP Consulting Services</strong>, where I work on the frontend and backend for a life insurance platform called Titanium.
-        I really enjoy the entire process of creating and iterating on applications, especially with regards to improving efficiency and user experience.
+        I'm a senior full stack software engineer at <strong>LIDP Consulting Services</strong>,
+        where I work on the frontend and backend for a life insurance platform called Titanium. I
+        really enjoy the entire process of creating and iterating on applications, especially with
+        regards to improving efficiency and user experience.
       </p>
       <p>
-        Currently, I'm working toward my <strong>B.S. in Computer Science at the University of Florida</strong> while working full time (I'm pretty tired), after
-        finishing my A.A. and A.S. at State College of Florida. Along the way I earned LOMA's FLMI, ACS, AIRC and
-        ALMI designations.
+        Currently, I'm working toward my
+        <strong>B.S. in Computer Science at the University of Florida</strong> while working full
+        time (I'm pretty tired), after finishing my A.A. and A.S. at State College of Florida. Along
+        the way I earned LOMA's FLMI, ACS, AIRC and ALMI designations.
       </p>
       <p>
-        After work, I have a number of hobbies including drawing and painting. I included some of my art for you all to check out. (´｡• ᵕ •｡`)
+        After work, I have a number of hobbies including drawing and painting. I included some of my
+        art for you all to check out. (´｡• ᵕ •｡`)
       </p>
       <p>
-        I also have a fun variety of fixations and interests such as Urban Planning, Splatoon, Trains/Public Transit (we really need some high speed rail), Sonic the Hedgehog and going to the gym.
+        I also have a fun variety of fixations and interests such as Urban Planning, Splatoon,
+        Trains/Public Transit (we really need some high speed rail), Sonic the Hedgehog and going to
+        the gym.
       </p>
     </div>
   </div>
 
   <ul class="container facts">
     @for (fact of facts; track fact.label) {
-      <li class="comic-card comic-card--hover fact">
+      <li class="comic-card fact">
         <app-icon [name]="fact.icon" />
         <strong>{{ fact.value }}</strong>
         <span>{{ fact.label }}</span>

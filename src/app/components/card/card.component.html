@@ -1,14 +1,14 @@
-<article class="comic-card comic-card--hover card">
+<article class="comic-card card">
   <span class="card-accent" aria-hidden="true"></span>
 
-  <h3 class="card-title">{{ title }}</h3>
+  <h3 class="card-title">{{ title() }}</h3>
 
-  <p class="card-description">{{ description }}</p>
+  <p class="card-description">{{ description() }}</p>
 
-  @if (tags.length) {
+  @if (tags().length) {
     <div class="card-tags">
-      @for (tag of tags; track tag) {
-        <app-tag [label]="tag"></app-tag>
+      @for (tag of tags(); track tag) {
+        <app-tag [label]="tag" />
       }
     </div>
   }

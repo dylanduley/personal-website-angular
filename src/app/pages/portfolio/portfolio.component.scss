@@ -3,7 +3,7 @@
   width: 420px;
   max-width: 100%;
   height: auto;
-  filter: drop-shadow(6px 6px 0 rgb(10 14 23 / 0.6));
+  filter: saturate(0.7) brightness(1.08) drop-shadow(5px 5px 0 rgb(69 180 242 / 0.45));
   transition: transform 0.3s ease;
 
   &:hover {
@@ -11,6 +11,6 @@
   }
 }
 
-#art {
-  --label-color: var(--c-yellow);
+:host-context([data-theme='dark']) .banner-art {
+  filter: drop-shadow(6px 6px 0 rgb(10 14 23 / 0.6));
 }

@@ -1,17 +1,31 @@
-<section class="section" id="projects">
+<section class="section" [class.section--inked]="featuredOnly()" id="projects">
   <div class="container">
     <app-section-header
       label="Code"
-      header="Featured Projects"
-      description="Exciting projects that I have worked on for both work and myself."
-    ></app-section-header>
+      [header]="header()"
+      description="Things I've built at work and for fun."
+    />
 
     <div class="project-showcase">
-      @for (project of projects; track project.title) {
-        <article class="comic-card comic-card--hover project-panel">
-          <div class="project-media">
-            <img [src]="project.image" [alt]="project.title" loading="lazy" decoding="async" />
-          </div>
+      @for (project of projects(); track project.title) {
+        @let link = project.site ?? project.github;
+        <article class="comic-card project-panel">
+          @if (link) {
+            <a
+              class="project-media is-linked"
+              [href]="link"
+              target="_blank"
+              rel="noopener"
+              tabindex="-1"
+              aria-hidden="true"
+            >
+              <img [src]="project.image" alt="" loading="lazy" decoding="async" />
+            </a>
+          } @else {
+            <div class="project-media">
+              <img [src]="project.image" [alt]="project.title" loading="lazy" decoding="async" />
+            </div>
+          }
 
           <div class="project-content">
             <span class="tag">{{ project.category }}</span>
@@ -21,12 +35,24 @@
             @if (project.github || project.site) {
               <div class="social-links project-links">
                 @if (project.github) {
-                  <a [href]="project.github" target="_blank" rel="noopener" title="GitHub" [attr.aria-label]="project.title + ' on GitHub'">
+                  <a
+                    [href]="project.github"
+                    target="_blank"
+                    rel="noopener"
+                    title="GitHub"
+                    [attr.aria-label]="project.title + ' on GitHub'"
+                  >
                     <app-icon name="github" />
                   </a>
                 }
                 @if (project.site) {
-                  <a [href]="project.site" target="_blank" rel="noopener" title="Visit site" [attr.aria-label]="'Visit ' + project.title">
+                  <a
+                    [href]="project.site"
+                    target="_blank"
+                    rel="noopener"
+                    title="Visit site"
+                    [attr.aria-label]="'Visit ' + project.title"
+                  >
                     <app-icon name="globe" />
                   </a>
                 }
@@ -36,5 +62,13 @@
         </article>
       }
     </div>
+
+    @if (featuredOnly()) {
+      <div class="cta">
+        <a class="comic-btn" routerLink="/portfolio">
+          <span>See all projects <app-icon name="arrow-right" /></span>
+        </a>
+      </div>
+    }
   </div>
 </section>

@@ -55,6 +55,9 @@ export class ThemeService {
     if (!this.isBrowser) return 'light';
     const attr = this.doc.documentElement.getAttribute('data-theme');
     if (attr === 'light' || attr === 'dark') return attr;
-    return this.storedTheme() ?? (window.matchMedia?.('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    return (
+      this.storedTheme() ??
+      (window.matchMedia?.('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+    );
   }
 }

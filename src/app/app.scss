@@ -1,0 +1,33 @@
+:host {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg);
+  background-image: var(--grain);
+  color: var(--text);
+}
+
+.content {
+  flex: 1;
+  outline: none;
+}
+
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 2000;
+  padding: 0.6rem 1rem;
+  font-weight: 800;
+  color: var(--ink);
+  background: var(--c-sun);
+  border: 2px solid var(--outline);
+  border-radius: 8px;
+  box-shadow: 2px 2px 0 var(--outline);
+  text-decoration: none;
+  transform: translateY(-200%);
+
+  &:focus-visible {
+    transform: none;
+  }
+}

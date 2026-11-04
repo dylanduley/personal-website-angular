@@ -1,3 +1,7 @@
+:host {
+  --sticker-bg: var(--c-sun);
+}
+
 .project-showcase {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -9,16 +13,26 @@
   flex-direction: column;
   overflow: hidden;
 
-  &:nth-child(3n + 1) { --accent: var(--c-cyan); }
-  &:nth-child(3n + 2) { --accent: var(--c-green); }
-  &:nth-child(3n + 3) { --accent: var(--c-purple); }
+  &:nth-child(4n + 1) {
+    --accent: var(--c-cyan);
+  }
+  &:nth-child(4n + 2) {
+    --accent: var(--c-seafoam);
+  }
+  &:nth-child(4n + 3) {
+    --accent: var(--c-sun);
+  }
+  &:nth-child(4n + 4) {
+    --accent: var(--c-coral);
+  }
 }
 
 .project-media {
+  display: block;
   position: relative;
   height: 210px;
   overflow: hidden;
-  border-bottom: 3px solid var(--line);
+  border-bottom: 2px solid var(--line);
   background: var(--accent);
 
   img {
@@ -27,12 +41,11 @@
     height: 100%;
     object-fit: cover;
     transition: transform 0.35s ease;
-    will-change: transform;
   }
-}
 
-.project-panel:hover .project-media img {
-  transform: scale(1.06);
+  &.is-linked:hover img {
+    transform: scale(1.06);
+  }
 }
 
 .project-content {
@@ -65,4 +78,10 @@
     height: 38px;
     font-size: 1.05rem;
   }
+}
+
+.cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
 }

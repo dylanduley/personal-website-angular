@@ -1,15 +1,12 @@
 import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
-import { ICONS } from './icons';
+import { ICONS, IconName } from './icons';
 
 @Component({
   selector: 'app-icon',
-  standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { 'aria-hidden': 'true' },
   template: `
-    @if (icon(); as i) {
-      <svg [attr.viewBox]="i.viewBox" focusable="false"><path [attr.d]="i.path" /></svg>
-    }
+    <svg [attr.viewBox]="icon().viewBox" focusable="false"><path [attr.d]="icon().path" /></svg>
   `,
   styles: `
     :host {
@@ -24,9 +21,9 @@ import { ICONS } from './icons';
       height: 1em;
       fill: currentColor;
     }
-  `
+  `,
 })
 export class IconComponent {
-  readonly name = input.required<string>();
+  readonly name = input.required<IconName>();
   protected readonly icon = computed(() => ICONS[this.name()]);
 }

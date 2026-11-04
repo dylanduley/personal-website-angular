@@ -1,15 +1,14 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { TagComponent } from '../tag/tag.component';
 
 @Component({
   selector: 'app-card',
-  standalone: true,
-  templateUrl: './card.component.html',
   imports: [TagComponent],
-  styleUrls: ['./card.component.scss']
+  templateUrl: './card.component.html',
+  styleUrl: './card.component.scss',
 })
 export class CardComponent {
-  @Input() title = '';
-  @Input() description = '';
-  @Input() tags: string[] = [];
+  readonly title = input('');
+  readonly description = input('');
+  readonly tags = input<string[]>([]);
 }

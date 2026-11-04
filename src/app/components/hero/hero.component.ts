@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import { IconComponent } from '../icon/icon.component';
+import { SOCIAL_LINKS } from '../../data/social';
 
 @Component({
-  standalone: true,
-  imports: [IconComponent],
   selector: 'app-hero',
+  imports: [IconComponent],
   templateUrl: './hero.component.html',
-  styleUrls: ['./hero.component.scss']
+  styleUrl: './hero.component.scss',
 })
-export class HeroComponent {}
+export class HeroComponent {
+  readonly socialLinks = SOCIAL_LINKS;
+}

@@ -1,7 +1,7 @@
 <header class="header">
   <div class="header-left">
     <a routerLink="/" class="brand-link" aria-label="Dylan Duley - Home Page">
-      <img src="/assets/images/logo.svg" alt="Logo" width="35" height="35">
+      <span class="brand-logo" aria-hidden="true"></span>
     </a>
   </div>
 
@@ -23,11 +23,15 @@
       type="button"
       class="nav-button icon-button theme-toggle-btn"
       (click)="theme.toggle()"
-      [attr.aria-label]="theme.isDark() ? 'Switch to light mode' : 'Switch to dark mode'"
-      [title]="theme.isDark() ? 'Light mode' : 'Dark mode'"
+      [attr.aria-pressed]="theme.isDark()"
+      aria-label="Dark mode"
+      title="Toggle dark mode"
     >
       <span class="btn-text">
-        <app-icon [name]="theme.isDark() ? 'moon' : 'sun'" />
+        <span class="theme-icons">
+          <app-icon class="icon-light" name="sun" />
+          <app-icon class="icon-dark" name="moon" />
+        </span>
       </span>
     </button>
 
@@ -35,27 +39,30 @@
       type="button"
       class="nav-button icon-button hamburger"
       (click)="toggleMenu()"
-      [attr.aria-expanded]="isMobileMenuOpen"
+      [attr.aria-expanded]="isMobileMenuOpen()"
       aria-controls="mobile-nav"
       aria-label="Toggle navigation menu"
     >
       <span class="btn-text">
-        <app-icon [name]="isMobileMenuOpen ? 'xmark' : 'bars'" />
+        <app-icon [name]="isMobileMenuOpen() ? 'xmark' : 'bars'" />
       </span>
     </button>
   </div>
 </header>
 
-<nav id="mobile-nav" class="nav-mobile" [class.is-open]="isMobileMenuOpen" aria-label="Mobile Navigation Menu">
+<nav
+  id="mobile-nav"
+  class="nav-mobile"
+  [class.is-open]="isMobileMenuOpen()"
+  aria-label="Mobile Navigation Menu"
+>
   <div class="nav-mobile-container">
     @for (link of links; track link.path) {
       <a
         [routerLink]="link.path"
         routerLinkActive="active"
         [routerLinkActiveOptions]="{ exact: link.exact }"
-        (click)="closeMenu()"
         class="nav-button mobile"
-        [attr.tabindex]="isMobileMenuOpen ? null : -1"
       >
         <span class="btn-text">{{ link.label }}</span>
       </a>

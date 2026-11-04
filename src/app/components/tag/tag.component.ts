@@ -1,10 +1,9 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-tag',
-  standalone: true,
   templateUrl: './tag.component.html',
 })
 export class TagComponent {
-  @Input() label: string = '';
+  readonly label = input('');
 }

@@ -1,16 +1,14 @@
 import { Component } from '@angular/core';
-import {CardComponent} from '../card/card.component';
-import {SectionHeaderComponent} from '../section-header/section-header.component';
+import { CardComponent } from '../card/card.component';
+import { SectionHeaderComponent } from '../section-header/section-header.component';
+import { SKILL_GROUPS } from '../../data/skills';
 
 @Component({
   selector: 'app-skill-section',
-  standalone: true,
+  imports: [CardComponent, SectionHeaderComponent],
   templateUrl: './skill-section.component.html',
-  imports: [
-    CardComponent,
-    SectionHeaderComponent
-  ],
-  styleUrls: ['./skill-section.component.scss']
+  styleUrl: './skill-section.component.scss',
 })
 export class SkillSectionComponent {
+  readonly skillGroups = SKILL_GROUPS;
 }

@@ -1,36 +1,52 @@
-.experience-section {
-  --label-color: var(--c-green);
-  --exp-wash: linear-gradient(to bottom, rgb(246 240 228 / 0.6), rgb(246 240 228 / 0.2) 50%, rgb(246 240 228 / 0));
-  --exp-img: url('/assets/images/web/experience-bg-3.webp');
+:host {
+  --sticker-bg: var(--c-seafoam);
+}
 
-  border-top: var(--border);
-  background: var(--exp-wash), var(--exp-img) center 40% / cover no-repeat, var(--bg-alt);
+.experience-section {
+  --exp-wash: linear-gradient(to bottom, rgb(247 239 225 / 0.35), rgb(247 239 225 / 0) 25%);
+  --exp-img: url('/assets/images/web/experience-day.webp');
+
+  isolation: isolate;
+  background: var(--bg-alt);
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+      var(--exp-wash),
+      var(--exp-img) center 55% / cover no-repeat;
+    filter: saturate(1.05);
+  }
 
   @media (max-width: 800px) {
-    --exp-img: url('/assets/images/web/experience-bg-3-sm.webp');
+    --exp-img: url('/assets/images/web/experience-day-sm.webp');
   }
 }
 
 :host-context([data-theme='dark']) .experience-section {
-  --exp-wash: linear-gradient(to bottom, rgb(18 32 54 / 0.85), rgb(18 32 54 / 0.55) 55%, rgb(18 32 54 / 0.3));
+  --exp-img: url('/assets/images/web/experience-twilight.webp');
+  --exp-wash: linear-gradient(
+    to bottom,
+    rgb(28 26 22 / 0.75),
+    rgb(28 26 22 / 0.4) 55%,
+    rgb(28 26 22 / 0.2)
+  );
+
+  @media (max-width: 800px) {
+    --exp-img: url('/assets/images/web/experience-twilight-sm.webp');
+  }
 }
 
 .timeline {
+  --logo-size: 62px;
+
   position: relative;
   max-width: 860px;
   margin: 0 auto;
   padding: 0;
   list-style: none;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0.5rem;
-    bottom: 0.5rem;
-    left: 30px;
-    width: 3px;
-    background: repeating-linear-gradient(to bottom, var(--line) 0 14px, transparent 14px 22px);
-  }
 }
 
 .experience-item {
@@ -43,10 +59,29 @@
     margin-top: 2rem;
   }
 
-  &:nth-child(4n + 1) .logo { --ring: var(--c-cyan); }
-  &:nth-child(4n + 2) .logo { --ring: var(--c-green); }
-  &:nth-child(4n + 3) .logo { --ring: var(--c-yellow); }
-  &:nth-child(4n + 4) .logo { --ring: var(--c-purple); }
+  &:not(:last-child)::before {
+    content: '';
+    position: absolute;
+    top: calc(var(--logo-size) / 2);
+    bottom: calc(-2rem - var(--logo-size) / 2);
+    left: calc(var(--logo-size) / 2 - 1.5px);
+    width: 3px;
+    background: repeating-linear-gradient(to bottom, var(--paper) 0 14px, transparent 14px 22px);
+    filter: drop-shadow(0 0 1px rgb(10 14 23 / 0.7));
+  }
+
+  &:nth-child(4n + 1) .logo {
+    --ring: var(--c-cyan);
+  }
+  &:nth-child(4n + 2) .logo {
+    --ring: var(--c-seafoam);
+  }
+  &:nth-child(4n + 3) .logo {
+    --ring: var(--c-sun);
+  }
+  &:nth-child(4n + 4) .logo {
+    --ring: var(--c-coral);
+  }
 }
 
 .logo {
@@ -55,18 +90,18 @@
   flex-shrink: 0;
   display: grid;
   place-items: center;
-  width: 62px;
-  height: 62px;
+  width: var(--logo-size);
+  height: var(--logo-size);
   border-radius: 50%;
   background: #fff;
-  border: 3px solid var(--ink);
-  box-shadow: 4px 4px 0 var(--ring, var(--c-cyan));
+  border: 2px solid var(--outline);
+  box-shadow: 3px 3px 0 var(--ring, var(--c-cyan));
   overflow: hidden;
 
   img {
-    width: 72%;
-    height: 72%;
-    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 }
 
@@ -95,7 +130,7 @@
   display: block;
   margin-top: 0.2rem;
   font-weight: 700;
-  color: var(--c-sky);
+  color: var(--accent-text);
 }
 
 .description {
@@ -105,17 +140,12 @@
 }
 
 @media (max-width: 600px) {
-  .timeline::before {
-    left: 22px;
+  .timeline {
+    --logo-size: 46px;
   }
 
   .experience-item {
     gap: 0.9rem;
-  }
-
-  .logo {
-    width: 46px;
-    height: 46px;
   }
 
   .content {

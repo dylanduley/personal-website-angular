@@ -14,10 +14,6 @@
   }
 }
 
-.sticker {
-  --sticker-bg: var(--label-color, var(--c-cyan));
-}
-
 h2 {
   margin: 1.1rem 0 0.75rem;
   font-size: clamp(2.2rem, 5vw, 3rem);

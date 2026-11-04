@@ -1,42 +1,65 @@
-import { Component, HostBinding, HostListener, inject } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { afterNextRender, Component, DestroyRef, ElementRef, inject, signal } from '@angular/core';
+import { NavigationEnd, Router, RouterLink, RouterLinkActive } from '@angular/router';
+import { filter } from 'rxjs';
 import { ThemeService } from '../../services/theme.service';
 import { IconComponent } from '../icon/icon.component';
 
 @Component({
   selector: 'app-header',
-  standalone: true,
   imports: [IconComponent, RouterLink, RouterLinkActive],
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrl: './header.component.scss',
+  host: {
+    '[class.is-scrolled]': 'isScrolled() || isMobileMenuOpen()',
+    '[class.is-menu-open]': 'isMobileMenuOpen()',
+    '(window:scroll)': 'onWindowScroll()',
+    '(window:resize)': 'onWindowResize()',
+    '(document:keydown.escape)': 'closeMenu()',
+    '(document:click)': 'onDocumentClick($event)',
+  },
 })
 export class HeaderComponent {
   protected readonly theme = inject(ThemeService);
+  private readonly host = inject<ElementRef<HTMLElement>>(ElementRef);
 
   readonly links = [
     { path: '/', label: 'Home', exact: true },
-    { path: '/about', label: 'About Me', exact: false },
-    { path: '/portfolio', label: 'Portfolio', exact: false }
+    { path: '/about', label: 'About me', exact: false },
+    { path: '/portfolio', label: 'Portfolio', exact: false },
   ];
 
-  isMobileMenuOpen = false;
-  isScrolled = false;
+  readonly isMobileMenuOpen = signal(false);
+  readonly isScrolled = signal(false);
 
-  @HostBinding('class.is-scrolled') get scrolledClass() {
-    return this.isScrolled || this.isMobileMenuOpen;
+  constructor() {
+    const router = inject(Router);
+    const sub = router.events
+      .pipe(filter((e) => e instanceof NavigationEnd))
+      .subscribe(() => this.closeMenu());
+    inject(DestroyRef).onDestroy(() => sub.unsubscribe());
+
+    afterNextRender(() => this.onWindowScroll());
   }
 
-  @HostListener('window:scroll')
-  onWindowScroll() {
-    this.isScrolled = window.scrollY > 20;
+  onWindowScroll(): void {
+    this.isScrolled.set(window.scrollY > 20);
   }
 
-  @HostListener('document:keydown.escape')
-  closeMenu() {
-    this.isMobileMenuOpen = false;
+  onWindowResize(): void {
+    if (this.isMobileMenuOpen() && window.innerWidth > 768) this.closeMenu();
   }
 
-  toggleMenu() {
-    this.isMobileMenuOpen = !this.isMobileMenuOpen;
+  onDocumentClick(event: MouseEvent): void {
+    if (this.isMobileMenuOpen() && !this.host.nativeElement.contains(event.target as Node)) {
+      this.closeMenu();
+    }
+  }
+
+  closeMenu(): void {
+    this.isMobileMenuOpen.set(false);
+  }
+
+  toggleMenu(): void {
+    this.isMobileMenuOpen.update((open) => !open);
   }
 }

@@ -1,4 +1,9 @@
 :host {
+  --header-bg: rgb(207 230 220 / 0.6);
+  --header-shadow: 0 4px 18px rgb(10 14 23 / 0.12);
+  --menu-bg: rgb(207 230 220 / 0.97);
+  --menu-shadow: 0 10px 25px rgb(10 14 23 / 0.15);
+
   display: block;
   position: fixed;
   inset: 0 0 auto 0;
@@ -7,23 +12,41 @@
 
 .header {
   position: relative;
+  isolation: isolate;
   height: var(--header-h);
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 28px;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: var(--header-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: var(--header-shadow);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
 
   @media (max-width: 768px) {
     padding: 0 16px;
   }
 }
 
-:host(.is-scrolled) .header {
-  background: rgba(10, 14, 23, 0.62);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+:host(.is-scrolled) .header::before {
+  opacity: 1;
+}
+
+:host(.is-menu-open) .header::before {
+  background: var(--menu-bg);
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
 .header-left,
@@ -36,6 +59,19 @@
 .header-right,
 .nav-desktop {
   gap: 12px;
+}
+
+.brand-logo {
+  display: block;
+  width: 35px;
+  height: 35px;
+  background-color: var(--logo-color, #fff);
+  -webkit-mask: url('/assets/images/logo.svg') center / contain no-repeat;
+  mask: url('/assets/images/logo.svg') center / contain no-repeat;
+}
+
+:host {
+  --logo-color: var(--outline);
 }
 
 .brand-link {
@@ -56,10 +92,11 @@
 // the link itself never moves, only .btn-text does. ::after covers the gap
 // so clicking right on the edge still navigates
 .nav-button {
-  --btn-ink: #0a0e17;
-  --btn-bg: #ffffff;
-  --btn-fg: #0a0e17;
-  --btn-hover: var(--c-cyan);
+  --btn-ink: var(--outline);
+  --btn-bg: #fff;
+  --btn-fg: var(--ink);
+  --btn-hover: var(--tag-bg);
+  --btn-hover-fg: var(--ink);
 
   position: relative;
   display: inline-block;
@@ -69,9 +106,8 @@
   background: var(--btn-ink);
   font: inherit;
   font-size: 0.95rem;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+  font-weight: 700;
+  letter-spacing: 0.01em;
   text-decoration: none;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
@@ -88,18 +124,21 @@
     align-items: center;
     justify-content: center;
     padding: 0.45rem 1.1rem;
-    border: 3px solid var(--btn-ink);
+    border: 2px solid var(--btn-border, var(--btn-ink));
     border-radius: 8px;
     background: var(--btn-bg);
     color: var(--btn-fg);
-    transform: translate(-0.15em, -0.25em);
-    transition: transform 0.15s var(--spring), background-color 0.2s ease, color 0.2s ease;
+    transform: translate(-0.1em, -0.18em);
+    transition:
+      transform 0.15s var(--spring),
+      background-color 0.2s ease,
+      color 0.2s ease;
   }
 
   &:hover .btn-text {
-    transform: translate(-0.2em, -0.35em);
+    transform: translate(-0.14em, -0.26em);
     background: var(--btn-hover);
-    color: #000;
+    color: var(--btn-hover-fg);
   }
 
   &:active .btn-text {
@@ -109,8 +148,8 @@
 
   &.active .btn-text {
     background: var(--c-cyan);
-    color: #000;
-    box-shadow: inset -4px -4px 0 rgba(0, 0, 0, 0.15);
+    color: var(--ink);
+    box-shadow: inset -3px -3px 0 rgba(0, 0, 0, 0.12);
   }
 
   &.mobile {
@@ -133,10 +172,15 @@
 }
 
 .theme-toggle-btn {
-  --btn-hover: var(--c-yellow);
+  --btn-hover: var(--c-sun);
 
-  app-icon {
+  .theme-icons {
+    display: inline-flex;
     transition: transform 0.5s var(--spring);
+  }
+
+  .icon-dark {
+    display: none;
   }
 }
 
@@ -149,17 +193,35 @@
 }
 
 :host-context([data-theme='dark']) {
+  --header-bg: rgb(19 37 31 / 0.6);
+  --header-shadow: 0 8px 24px rgb(0 0 0 / 0.5);
+  --menu-bg: rgb(19 37 31 / 0.97);
+  --menu-shadow: 0 10px 25px rgb(0 0 0 / 0.6);
+
   .nav-button {
-    --btn-ink: #000;
-    --btn-bg: #1a1e29;
-    --btn-fg: #f8f5ee;
+    --btn-ink: var(--shadow);
+    --btn-border: var(--line);
+    --btn-bg: var(--bg-alt);
+    --btn-fg: var(--on-dark);
+    --btn-hover: var(--tag-bg);
+    --btn-hover-fg: var(--on-dark);
   }
 
   .theme-toggle-btn {
-    --btn-fg: var(--c-yellow);
+    --btn-fg: var(--c-sun);
+    --btn-hover: var(--c-sun);
+    --btn-hover-fg: var(--ink);
 
-    app-icon {
+    .theme-icons {
       transform: rotate(360deg);
+    }
+
+    .icon-light {
+      display: none;
+    }
+
+    .icon-dark {
+      display: inline-flex;
     }
   }
 }
@@ -169,21 +231,26 @@
   top: 100%;
   left: 0;
   width: 100%;
-  background: rgba(10, 14, 23, 0.95);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 3px solid var(--c-cyan);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+  background: var(--menu-bg);
+  border-bottom: 2px solid var(--c-cyan);
+  box-shadow: var(--menu-shadow);
   max-height: 0;
   overflow: hidden;
   opacity: 0;
   visibility: hidden;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  transition:
+    max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    visibility 0.35s;
 
   &.is-open {
     max-height: 320px;
     opacity: 1;
     visibility: visible;
+  }
+
+  @media (min-width: 769px) {
+    display: none;
   }
 }
 
@@ -192,4 +259,16 @@
   flex-direction: column;
   gap: 14px;
   padding: 22px 24px;
+}
+
+.nav-button:focus-visible,
+.brand-link:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+  border-radius: 8px;
+  box-shadow: 0 0 0 3px #fff;
+}
+
+:host-context([data-theme='dark']) {
+  --logo-color: #fff;
 }

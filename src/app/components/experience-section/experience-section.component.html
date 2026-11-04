@@ -1,6 +1,6 @@
-<section class="section experience-section" id="experience">
+<section class="section section--inked experience-section" id="experience">
   <div class="container">
-    <app-section-header label="Work & Schooling" header="Experience" align="center"></app-section-header>
+    <app-section-header label="Work & Schooling" header="Experience" align="center" />
 
     <ol class="timeline">
       @for (item of items; track item.role) {
@@ -9,7 +9,7 @@
             <img [src]="item.logo" [alt]="item.logoAlt" loading="lazy" decoding="async" />
           </div>
 
-          <div class="comic-card comic-card--hover content">
+          <div class="comic-card content">
             <span class="period">{{ item.period }}</span>
             <h3 class="role">{{ item.role }}</h3>
             <span class="company">{{ item.org }}</span>

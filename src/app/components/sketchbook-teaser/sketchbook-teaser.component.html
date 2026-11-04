@@ -1,12 +1,12 @@
-<section class="section section--dots section--inked sketchbook">
+<section class="section section--dots section--inked section--art sketchbook">
   <div class="container">
     <app-section-header
       label="Art"
       header="Recent drawings"
       description="A few recent art pieces I made ＼(＾▽＾)／"
-    ></app-section-header>
+    />
 
-    <app-art-gallery [limit]="limit"></app-art-gallery>
+    <app-art-gallery [limit]="limit()" />
 
     <div class="cta">
       <a class="comic-btn" routerLink="/portfolio" fragment="art">

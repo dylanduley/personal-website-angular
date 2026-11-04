@@ -1,9 +1,11 @@
-<div class="section-header" [class.center]="align === 'center'">
-  @if (label) {
-    <span class="sticker">{{ label }}</span>
+<div class="section-header" [class.center]="align() === 'center'">
+  @if (label()) {
+    <span class="sticker">{{ label() }}</span>
   }
-  <h2><span class="marker">{{ header }}</span></h2>
-  @if (description) {
-    <p>{{ description }}</p>
+  <h2>
+    <span class="marker">{{ header() }}</span>
+  </h2>
+  @if (description()) {
+    <p>{{ description() }}</p>
   }
 </div>

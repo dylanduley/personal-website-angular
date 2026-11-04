@@ -1,56 +1,15 @@
 <section class="section section--dots" id="skills">
   <div class="container">
-
-    <app-section-header label="Expertise"
-                        header="Skills & Tech"
-                        description="The languages, frameworks and tools I use to deploy and create applications."
-    ></app-section-header>
+    <app-section-header
+      label="Expertise"
+      header="Skills & Tech"
+      description="The languages, frameworks and tools I use to deploy and create applications."
+    />
 
     <div class="skills-grid">
-
-      <app-card
-        title="Full-Stack Development"
-        description="Building scalable web applications with modern frontend frameworks, backend services, and APIs."
-        [tags]="[
-          'Angular',
-          'React',
-          'Next.js',
-          'TypeScript',
-          'JavaScript',
-          'Java',
-          'Spring Boot',
-          'Node.js',
-          'REST APIs'
-        ]">
-      </app-card>
-
-      <app-card
-        title="UI Engineering"
-        description="Creating responsive interfaces with component-driven development and scalable styling systems."
-        [tags]="[
-          'HTML5',
-          'SCSS',
-          'Tailwind CSS',
-          'Storybook',
-          'Chromatic',
-          'Figma'
-        ]">
-      </app-card>
-
-      <app-card
-        title="Cloud, Data & DevOps"
-        description="Deploying, automating, and managing applications with modern infrastructure and databases."
-        [tags]="[
-          'AWS',
-          'Docker',
-          'GitHub Actions',
-          'CI/CD',
-          'PostgreSQL',
-          'SQL Server'
-        ]">
-      </app-card>
-
+      @for (group of skillGroups; track group.title) {
+        <app-card [title]="group.title" [description]="group.description" [tags]="group.tags" />
+      }
     </div>
-
   </div>
 </section>

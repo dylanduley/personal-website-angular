@@ -33,6 +33,14 @@ export const PROJECTS: Project[] = [
     github: 'https://github.com/dylanduley/snake-game',
   },
   {
+    title: 'Random Quotes',
+    category: 'HTML + CSS + JS',
+    description: 'A simple website showcasing random quotes I like.',
+    image: '/assets/images/web/random-quotes.webp',
+    github: 'https://github.com/dylanduley/random-quotes',
+    site: 'https://dylanduley.github.io/random-quotes/',
+  },
+  {
     title: 'My website',
     category: 'Angular',
     description:

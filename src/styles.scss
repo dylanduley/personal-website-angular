@@ -18,6 +18,7 @@
   --bg: #1c1a16;
   --bg-alt: #1e2520;
   --bg-art: #2a2120;
+  --bg-sand: #28231b;
   --surface: #2b2925;
   --text: #f4f1ea;
   --text-muted: #bfb9ae;
@@ -52,6 +53,7 @@
   --bg: #f7efe1;
   --bg-alt: #e6ede8;
   --bg-art: #f1e6e2;
+  --bg-sand: #ecdfc6;
   --surface: var(--paper);
   --text: #0a1622;
   --text-muted: #43505f;
@@ -158,6 +160,10 @@ html:has(dialog.lightbox[open]) {
     18px 18px,
     auto,
     auto;
+}
+
+.section--sand {
+  background-color: var(--bg-sand);
 }
 
 .section--art {

@@ -38,10 +38,7 @@
         transparent 42%
       ),
       var(--banner-bg);
-    background-size:
-      var(--banner-dot-size),
-      auto,
-      auto;
+    background-size: var(--banner-dot-size), auto, auto;
     -webkit-mask:
       linear-gradient(#000 0 0) top / 100% calc(100% - 35px) no-repeat,
       var(--banner-wave) bottom / 100% 36px no-repeat;

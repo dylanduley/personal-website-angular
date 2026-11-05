@@ -60,7 +60,7 @@
   --accent-text: var(--c-ocean);
   --focus: var(--c-ocean);
   --wave-line: var(--line);
-  --dots: color-mix(in srgb, var(--ink) 8%, transparent);
+  --grid: color-mix(in srgb, var(--ink) 6%, transparent);
   --marker: color-mix(in srgb, var(--c-sun) 50%, transparent);
   color-scheme: light;
 
@@ -90,7 +90,7 @@
   --accent-text: #9cc9d6;
   --focus: var(--c-cyan);
   --wave-line: color-mix(in srgb, var(--c-cyan) 70%, transparent);
-  --dots: color-mix(in srgb, var(--white) 7%, transparent);
+  --grid: color-mix(in srgb, var(--white) 5%, transparent);
   --marker: color-mix(in srgb, var(--c-cyan) 45%, transparent);
   color-scheme: dark;
 }
@@ -162,6 +162,18 @@ html:has(dialog.lightbox[open]) {
 .section {
   position: relative;
   padding: 5rem 0;
+}
+
+.section--grid {
+  background-color: var(--bg-alt);
+  background-image:
+    var(--grain),
+    linear-gradient(to right, var(--grid) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid) 1px, transparent 1px);
+  background-size:
+    220px 220px,
+    28px 28px,
+    28px 28px;
 }
 
 .section--plain {

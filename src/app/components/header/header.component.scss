@@ -1,9 +1,9 @@
 :host {
   --header-bg: color-mix(in srgb, var(--white) 16%, transparent);
   --header-edge: color-mix(in srgb, var(--white) 45%, transparent);
-  --header-shadow: 0 4px 18px color-mix(in srgb, var(--ink) 12%, transparent);
+  --header-shadow: 0 4px 18px var(--shadow-soft);
   --menu-bg: color-mix(in srgb, var(--white) 30%, transparent);
-  --menu-shadow: 0 10px 25px color-mix(in srgb, var(--ink) 15%, transparent);
+  --menu-shadow: 0 10px 25px var(--shadow-soft);
 
   display: block;
   position: fixed;
@@ -148,7 +148,7 @@
   &.active .btn-text {
     background: var(--c-cyan);
     color: var(--ink);
-    box-shadow: inset -3px -3px 0 color-mix(in srgb, var(--ink) 12%, transparent);
+    box-shadow: inset -3px -3px 0 var(--shadow-soft);
   }
 
   &.mobile {
@@ -195,8 +195,8 @@
   --header-bg: color-mix(in srgb, var(--bg) 35%, transparent);
   --menu-bg: color-mix(in srgb, var(--bg) 55%, transparent);
   --header-edge: color-mix(in srgb, var(--white) 12%, transparent);
-  --header-shadow: 0 8px 24px color-mix(in srgb, var(--ink) 50%, transparent);
-  --menu-shadow: 0 10px 25px color-mix(in srgb, var(--ink) 60%, transparent);
+  --header-shadow: 0 8px 24px var(--shadow-strong);
+  --menu-shadow: 0 10px 25px var(--shadow-strong);
 
   .nav-button {
     --btn-ink: var(--shadow);

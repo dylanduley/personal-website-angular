@@ -7,7 +7,11 @@
 
 .banner {
   --banner-bg: var(--ocean-gradient);
-  --banner-glow: rgb(255 238 180 / 0.6);
+  --banner-glow: color-mix(
+    in srgb,
+    color-mix(in srgb, var(--c-sun) 45%, var(--white)) 60%,
+    transparent
+  );
   --banner-text: var(--on-dark);
   --banner-muted: var(--on-dark);
   --banner-title-shadow: 3px 3px 0 var(--outline);

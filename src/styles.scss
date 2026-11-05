@@ -67,6 +67,8 @@
   --border: 2px solid var(--line);
   --radius-sketch: 18px 7px 20px 9px / 9px 20px 7px 18px;
   --pop: 4px 4px 0 var(--shadow);
+  --shadow-soft: color-mix(in srgb, var(--ink) 14%, transparent);
+  --shadow-strong: color-mix(in srgb, var(--ink) 60%, transparent);
   --spring: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
   --font-body: 'Inter', system-ui, -apple-system, sans-serif;
@@ -79,7 +81,7 @@
 
 @mixin dark-tokens {
   --bg: #121a24;
-  --bg-alt: #16202c;
+  --bg-alt: var(--navy);
   --surface: #1f2a38;
   --tag-bg: #2a3747;
   --text: var(--on-dark);
@@ -165,7 +167,7 @@ html:has(dialog.lightbox[open]) {
 }
 
 .section--grid {
-  background-color: var(--bg-alt);
+  background-color: var(--bg);
   background-image:
     var(--grain), linear-gradient(to right, var(--grid) 1px, transparent 1px),
     linear-gradient(to bottom, var(--grid) 1px, transparent 1px);
@@ -173,10 +175,6 @@ html:has(dialog.lightbox[open]) {
     220px 220px,
     28px 28px,
     28px 28px;
-}
-
-.section--plain {
-  background-color: var(--bg);
 }
 
 .section--art {

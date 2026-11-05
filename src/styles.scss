@@ -164,14 +164,6 @@ html:has(dialog.lightbox[open]) {
   padding: 5rem 0;
 }
 
-.section--dots {
-  background-color: var(--bg-alt);
-  background-image: var(--grain), radial-gradient(var(--dots) 1.5px, transparent 1.6px);
-  background-size:
-    220px 220px,
-    18px 18px;
-}
-
 .section--plain {
   background-color: var(--bg);
 }

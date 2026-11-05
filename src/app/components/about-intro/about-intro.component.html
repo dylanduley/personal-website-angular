@@ -1,7 +1,23 @@
 <section class="section intro">
   <div class="container intro-grid">
     <figure class="portrait">
-      <span class="tape" aria-hidden="true"></span>
+      <svg class="portrait-backdrop" viewBox="0 0 100 100" aria-hidden="true">
+        <defs>
+          <clipPath id="portrait-clip"><circle cx="50" cy="50" r="49" /></clipPath>
+        </defs>
+        <g clip-path="url(#portrait-clip)">
+          <circle class="backdrop-sun" cx="50" cy="50" r="49" />
+          <path
+            class="backdrop-wave-back"
+            d="M0 66 Q12.5 60 25 66 T50 66 T75 66 T100 66 V100 H0Z"
+          />
+          <path
+            class="backdrop-wave-front"
+            d="M0 76 Q12.5 70 25 76 T50 76 T75 76 T100 76 V100 H0Z"
+          />
+        </g>
+        <circle class="backdrop-ring" cx="50" cy="50" r="49" />
+      </svg>
       <img
         src="/assets/images/web/about-portrait.webp"
         alt="Dylan Duley"
@@ -9,7 +25,6 @@
         height="320"
         decoding="async"
       />
-      <figcaption class="hand">Me hiking in New York</figcaption>
     </figure>
 
     <div class="comic-card bubble">

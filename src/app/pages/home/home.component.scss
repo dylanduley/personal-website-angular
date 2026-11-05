@@ -1,11 +1,17 @@
 .hero-backdrop {
-  --focus: #1f3a52;
+  --focus: var(--c-sun);
   --hero-art: url('/assets/images/web/hero-day.webp');
-  --hero-sky: #66c7e9;
+  --hero-sky: var(--night);
   --hero-pos: center;
-  --hero-wash: none;
+  --hero-wash: radial-gradient(
+    ellipse 62% 58% at 52% 55%,
+    color-mix(in srgb, var(--night) 58%, transparent) 0%,
+    color-mix(in srgb, var(--night) 45%, transparent) 60%,
+    color-mix(in srgb, var(--night) 4%, transparent) 100%
+  );
   --hero-tint: linear-gradient(transparent, transparent);
-  --hero-grid: rgb(255 255 255 / 0.45);
+  --hero-blend: normal;
+  --hero-grid: color-mix(in srgb, var(--white) 22%, transparent);
 
   position: relative;
   overflow: hidden;
@@ -16,10 +22,14 @@
     var(--hero-tint),
     var(--hero-art) var(--hero-pos) / cover no-repeat,
     var(--hero-sky);
-  background-blend-mode: normal, screen, normal, normal;
+  background-blend-mode: normal, var(--hero-blend), normal, normal;
 
   @media (max-width: 800px) {
     --hero-art: url('/assets/images/web/hero-day-sm.webp');
+    --hero-wash: linear-gradient(
+      color-mix(in srgb, var(--night) 55%, transparent),
+      color-mix(in srgb, var(--night) 55%, transparent)
+    );
   }
 
   &::before {
@@ -45,15 +55,18 @@
 :host-context([data-theme='dark']) .hero-backdrop {
   --focus: var(--c-cyan);
   --hero-art: url('/assets/images/web/hero-night.webp');
-  --hero-sky: #0e1a2c;
-  --hero-tint: linear-gradient(#0d1729 0%, #10263a 65%, #173546 100%);
-  --hero-pos: center;
-  --hero-grid: rgb(255 255 255 / 0.18);
+  --hero-blend: screen;
+  --hero-tint: linear-gradient(
+    var(--night) 0%,
+    var(--navy) 65%,
+    color-mix(in srgb, var(--navy) 88%, var(--c-cyan)) 100%
+  );
+  --hero-grid: color-mix(in srgb, var(--white) 18%, transparent);
   --hero-wash: radial-gradient(
     ellipse 62% 58% at 52% 55%,
-    rgb(8 16 28 / 0.72) 0%,
-    rgb(8 16 28 / 0.5) 55%,
-    rgb(8 16 28 / 0.25) 100%
+    color-mix(in srgb, var(--night) 72%, transparent) 0%,
+    color-mix(in srgb, var(--night) 50%, transparent) 55%,
+    color-mix(in srgb, var(--night) 25%, transparent) 100%
   );
 
   @media (max-width: 800px) {

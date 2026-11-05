@@ -3,7 +3,11 @@
 }
 
 .experience-section {
-  --exp-wash: linear-gradient(to bottom, rgb(247 239 225 / 0.35), rgb(247 239 225 / 0) 25%);
+  --exp-wash: linear-gradient(
+    to bottom,
+    color-mix(in srgb, var(--bg) 20%, transparent),
+    transparent 20%
+  );
   --exp-img: url('/assets/images/web/experience-day.webp');
 
   isolation: isolate;
@@ -29,9 +33,9 @@
   --exp-img: url('/assets/images/web/experience-twilight.webp');
   --exp-wash: linear-gradient(
     to bottom,
-    rgb(28 26 22 / 0.75),
-    rgb(28 26 22 / 0.4) 55%,
-    rgb(28 26 22 / 0.2)
+    color-mix(in srgb, var(--bg) 75%, transparent),
+    color-mix(in srgb, var(--bg) 40%, transparent) 55%,
+    color-mix(in srgb, var(--bg) 20%, transparent)
   );
 
   @media (max-width: 800px) {
@@ -67,7 +71,7 @@
     left: calc(var(--logo-size) / 2 - 1.5px);
     width: 3px;
     background: repeating-linear-gradient(to bottom, var(--paper) 0 14px, transparent 14px 22px);
-    filter: drop-shadow(0 0 1px rgb(10 14 23 / 0.7));
+    filter: drop-shadow(0 0 1px color-mix(in srgb, var(--ink) 70%, transparent));
   }
 
   &:nth-child(4n + 1) .logo {
@@ -93,7 +97,7 @@
   width: var(--logo-size);
   height: var(--logo-size);
   border-radius: 50%;
-  background: #fff;
+  background: var(--white);
   border: 2px solid var(--outline);
   box-shadow: 3px 3px 0 var(--ring, var(--c-cyan));
   overflow: hidden;

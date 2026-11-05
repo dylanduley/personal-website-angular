@@ -42,11 +42,11 @@ The code is under the [MIT License](LICENSE), so feel free to look around and bo
 
 **The MIT License covers the code only. It does not cover any of the art or images.**
 
-All photos, paintings, sketches, drawings, the logo and every other image in this repository (everything in `src/assets/images`, except the logos and photos noted below) are © 2026 Dylan Duley. All rights reserved. They are not licensed for any use. You may not copy, download, edit, redistribute, use in your own projects, or use them to train AI models. If you fork or reuse this code, remove them and use your own images.
+All photos, paintings, sketches, drawings, the logo and every other image in this repository (everything in `src/assets/images`, except the logos and photo noted below) are © 2026 Dylan Duley. All rights reserved. They are not licensed for any use. You may not copy, download, edit, redistribute, use in your own projects, or use them to train AI models. If you fork or reuse this code, remove them and use your own images.
 
 The LIDP, University of Florida, State College of Florida and LOMA logos belong to their respective organizations and are only used to identify them.
 
-The home page sky photos (`hero-day` and `hero-night`) are from [Unsplash](https://unsplash.com) and are used under the [Unsplash License](https://unsplash.com/license).
+The home page night sky photo (`hero-night`) is from [Unsplash](https://unsplash.com) and is used under the [Unsplash License](https://unsplash.com/license).
 
 Fonts and icons belong to their creators:
 

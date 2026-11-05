@@ -15,19 +15,19 @@
 
   &:nth-child(4n + 1) {
     --tilt: -2.5deg;
-    --tape: rgb(69 180 242 / 0.75);
+    --tape: color-mix(in srgb, var(--c-cyan) 75%, transparent);
   }
   &:nth-child(4n + 2) {
     --tilt: 1.8deg;
-    --tape: rgb(79 214 166 / 0.8);
+    --tape: color-mix(in srgb, var(--c-seafoam) 80%, transparent);
   }
   &:nth-child(4n + 3) {
     --tilt: -1.2deg;
-    --tape: rgb(255 209 102 / 0.85);
+    --tape: color-mix(in srgb, var(--c-sun) 85%, transparent);
   }
   &:nth-child(4n + 4) {
     --tilt: 2.4deg;
-    --tape: rgb(255 138 110 / 0.75);
+    --tape: color-mix(in srgb, var(--c-coral) 75%, transparent);
   }
 }
 
@@ -90,7 +90,7 @@
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--paper-muted);
+  color: var(--slate);
 }
 
 .lightbox {
@@ -110,7 +110,7 @@
   }
 
   &::backdrop {
-    background: rgb(10 14 23 / 0.8);
+    background: color-mix(in srgb, var(--ink) 80%, transparent);
     backdrop-filter: blur(4px);
   }
 }

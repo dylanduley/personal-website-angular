@@ -1,19 +1,14 @@
 .footer {
-  --footer-bg: #d3e2db;
-  --footer-text: var(--ink);
-  --footer-muted: #34414f;
+  --focus: var(--c-sun);
 
   position: relative;
-  color: var(--footer-text);
-  background: var(--footer-bg);
-  border-top: 2px solid var(--wave-line);
-}
+  color: var(--on-dark);
+  background: var(--navy);
+  border-top: 2px solid var(--outline);
 
-:host-context([data-theme='dark']) .footer {
-  --focus: var(--c-cyan);
-  --footer-bg: #16221e;
-  --footer-text: var(--on-dark);
-  --footer-muted: var(--on-dark-muted);
+  small {
+    color: var(--on-dark-muted);
+  }
 }
 
 .footer-inner {
@@ -26,5 +21,4 @@
 
 small {
   font-size: 0.85rem;
-  color: var(--footer-muted);
 }

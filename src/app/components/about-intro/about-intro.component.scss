@@ -7,14 +7,10 @@
 
 .portrait {
   position: relative;
+  isolation: isolate;
+  width: 100%;
+  max-width: 320px;
   margin: 0;
-  padding: 0.75rem 0.75rem 0;
-  background: var(--paper);
-  border: 2px solid var(--outline);
-  box-shadow:
-    5px 5px 0 var(--c-cyan),
-    5px 5px 0 2px var(--outline);
-  transform: rotate(-3deg);
 
   img {
     display: block;
@@ -22,26 +18,38 @@
     height: auto;
     aspect-ratio: 1;
     object-fit: cover;
-    border: 1px solid var(--outline);
-  }
-
-  figcaption {
-    padding: 0.4rem 0 0.6rem;
-    text-align: center;
-    color: var(--ink);
-    font-size: 1.7rem;
+    border: 3px solid var(--outline);
+    border-radius: 50%;
   }
 }
 
-.tape {
+.portrait-backdrop {
   position: absolute;
-  top: -14px;
-  left: 50%;
-  width: 110px;
-  height: 28px;
-  background: rgb(255 209 102 / 0.85);
-  transform: translateX(-50%) rotate(4deg);
-  clip-path: polygon(3% 0, 97% 8%, 100% 92%, 0 100%);
+  inset: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  transform: translate(22px, 18px);
+}
+
+.backdrop-sun {
+  fill: var(--c-sun);
+}
+
+.backdrop-wave-back {
+  fill: var(--c-seafoam);
+}
+
+.backdrop-wave-front {
+  fill: var(--c-ocean);
+}
+
+.backdrop-ring {
+  fill: none;
+  stroke: var(--outline);
+  stroke-width: 3px;
+  vector-effect: non-scaling-stroke;
 }
 
 .bubble {
@@ -51,19 +59,20 @@
   &::after {
     content: '';
     position: absolute;
-    top: 3.5rem;
+    top: 50%;
     border-style: solid;
   }
 
   &::before {
     left: -24px;
+    margin-top: -14px;
     border-width: 14px 24px 14px 0;
     border-color: transparent var(--line) transparent transparent;
   }
 
   &::after {
     left: -20px;
-    margin-top: 3px;
+    margin-top: -11px;
     border-width: 11px 20px 11px 0;
     border-color: transparent var(--surface) transparent transparent;
   }
@@ -157,7 +166,7 @@
     &::before {
       top: -24px;
       left: 50%;
-      margin-left: -14px;
+      margin: 0 0 0 -14px;
       border-width: 0 14px 24px;
       border-color: transparent transparent var(--line);
     }

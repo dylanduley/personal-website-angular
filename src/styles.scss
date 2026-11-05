@@ -14,57 +14,54 @@
   font-display: swap;
 }
 
-@mixin dark-tokens {
-  --bg: #1c1a16;
-  --bg-alt: #1e2520;
-  --bg-art: #2a2120;
-  --bg-sand: #28231b;
-  --surface: #2b2925;
-  --text: #f4f1ea;
-  --text-muted: #bfb9ae;
-  --outline: #0a0e17;
-  --line: #555c69;
-  --shadow: #050607;
-  --tag-bg: #3a3832;
-  --dots: rgb(255 255 255 / 0.07);
-  --marker: rgb(69 180 242 / 0.45);
-  --accent-text: #9cc9d6;
-  --focus: var(--c-cyan);
-  --wave-line: rgb(69 180 242 / 0.7);
-  --navy: #172532;
-  --glow-sea: rgb(69 180 242 / 0.16);
-  --glow-coral: rgb(255 138 110 / 0.1);
-  color-scheme: dark;
-}
-
 :root {
+  // brand
   --c-cyan: #45b4f2;
   --c-seafoam: #4fd6a6;
   --c-sun: #ffd166;
   --c-coral: #ff8a6e;
+  --c-ocean: #0369a1;
+
+  // neutrals
   --ink: #0a0e17;
   --outline: #1f2d3d;
+  --slate: #34414f;
+  --white: #fff;
   --paper: #fffdf8;
-  --paper-muted: #43505f;
   --on-dark: #f4f1ea;
   --on-dark-muted: #c9c3b8;
-  --navy: #132943;
 
-  --bg: #f7efe1;
-  --bg-alt: #e6ede8;
-  --bg-art: #f1e6e2;
-  --bg-sand: #ecdfc6;
+  // surfaces
+  --cream: #f6f1e9;
+  --sea-glass: #d3e2db;
+
+  // sky
+  --night: #0e1a2c;
+  --navy: #172532;
+  --sky-deep: #0e5878;
+  --sky-mid: #0a64c8;
+  --sky-bright: #2cc2b0;
+  --ocean-gradient: linear-gradient(
+    115deg in oklab,
+    var(--sky-deep),
+    var(--sky-mid) 50%,
+    var(--sky-bright)
+  );
+
+  // light theme
+  --bg: var(--cream);
+  --bg-alt: var(--sea-glass);
   --surface: var(--paper);
-  --text: #0a1622;
-  --text-muted: #43505f;
+  --tag-bg: var(--sea-glass);
+  --text: var(--ink);
+  --text-muted: var(--slate);
   --line: var(--outline);
   --shadow: var(--outline);
-  --tag-bg: #dbe7e3;
+  --accent-text: var(--c-ocean);
+  --focus: var(--c-ocean);
   --wave-line: var(--line);
-  --dots: rgb(10 14 23 / 0.08);
-  --marker: rgb(255 209 102 / 0.5);
-  --accent-text: #0369a1;
-  --focus: #0369a1;
+  --dots: color-mix(in srgb, var(--ink) 8%, transparent);
+  --marker: color-mix(in srgb, var(--c-sun) 50%, transparent);
   color-scheme: light;
 
   --border: 2px solid var(--line);
@@ -78,6 +75,24 @@
   --header-h: 75px;
 
   --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+@mixin dark-tokens {
+  --bg: #121a24;
+  --bg-alt: #16202c;
+  --surface: #1f2a38;
+  --tag-bg: #2a3747;
+  --text: var(--on-dark);
+  --text-muted: var(--on-dark-muted);
+  --outline: var(--ink);
+  --line: #3e5170;
+  --shadow: var(--ink);
+  --accent-text: #9cc9d6;
+  --focus: var(--c-cyan);
+  --wave-line: color-mix(in srgb, var(--c-cyan) 70%, transparent);
+  --dots: color-mix(in srgb, var(--white) 7%, transparent);
+  --marker: color-mix(in srgb, var(--c-cyan) 45%, transparent);
+  color-scheme: dark;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -151,31 +166,18 @@ html:has(dialog.lightbox[open]) {
 
 .section--dots {
   background-color: var(--bg-alt);
-  background-image:
-    var(--grain), radial-gradient(var(--dots) 1.5px, transparent 1.6px),
-    radial-gradient(circle at 12% 0%, var(--glow-sea, transparent), transparent 50%),
-    radial-gradient(circle at 92% 100%, var(--glow-coral, transparent), transparent 50%);
+  background-image: var(--grain), radial-gradient(var(--dots) 1.5px, transparent 1.6px);
   background-size:
     220px 220px,
-    18px 18px,
-    auto,
-    auto;
+    18px 18px;
 }
 
-.section--sand {
-  background-color: var(--bg-sand);
+.section--plain {
+  background-color: var(--bg);
 }
 
 .section--art {
   --sticker-bg: var(--c-coral);
-
-  background-color: var(--bg-art);
-}
-
-[data-theme='dark'] .section:not(.section--dots) {
-  background-image:
-    radial-gradient(circle at 88% 0%, var(--glow-sea), transparent 45%),
-    radial-gradient(circle at 5% 100%, var(--glow-coral), transparent 40%);
 }
 
 .section--inked::before {
@@ -216,13 +218,6 @@ html:has(dialog.lightbox[open]) {
   border-radius: 8px 4px 9px 5px / 5px 9px 4px 8px;
   box-shadow: 2px 2px 0 var(--outline);
   transform: rotate(-2deg);
-}
-
-.hand {
-  font-family: var(--font-hand);
-  font-weight: 700;
-  font-size: 1.5rem;
-  line-height: 1.1;
 }
 
 .marker {
@@ -273,7 +268,7 @@ html:has(dialog.lightbox[open]) {
 
   &:hover > span {
     transform: translate(-0.18em, -0.3em);
-    background: #ffc444;
+    background: color-mix(in srgb, var(--c-sun) 75%, var(--c-coral));
   }
 
   &:active > span {
@@ -293,7 +288,7 @@ html:has(dialog.lightbox[open]) {
     height: 42px;
     font-size: 1.2rem;
     color: var(--ink);
-    background: #fff;
+    background: var(--white);
     border: 2px solid var(--outline);
     border-radius: 50%;
     box-shadow: 2px 2px 0 var(--outline);
@@ -303,19 +298,10 @@ html:has(dialog.lightbox[open]) {
       box-shadow 0.15s var(--spring),
       background-color 0.2s ease;
 
-    app-icon {
-      transition: transform 0.15s var(--spring);
-    }
-
-    // firefox draws lines through scaled rounded borders, so only the icon scales
     &:hover {
       background: var(--c-cyan);
       transform: translate(-1px, -1px);
       box-shadow: 3px 3px 0 var(--outline);
-
-      app-icon {
-        transform: scale(1.12);
-      }
     }
 
     &:active {

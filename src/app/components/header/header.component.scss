@@ -1,8 +1,9 @@
 :host {
-  --header-bg: rgb(211 226 219 / 0.6);
-  --header-shadow: 0 4px 18px rgb(10 14 23 / 0.12);
-  --menu-bg: rgb(211 226 219 / 0.97);
-  --menu-shadow: 0 10px 25px rgb(10 14 23 / 0.15);
+  --header-bg: color-mix(in srgb, var(--white) 16%, transparent);
+  --header-edge: color-mix(in srgb, var(--white) 45%, transparent);
+  --header-shadow: 0 4px 18px color-mix(in srgb, var(--ink) 12%, transparent);
+  --menu-bg: color-mix(in srgb, var(--white) 30%, transparent);
+  --menu-shadow: 0 10px 25px color-mix(in srgb, var(--ink) 15%, transparent);
 
   display: block;
   position: fixed;
@@ -12,6 +13,7 @@
 
 .header {
   position: relative;
+  z-index: 1;
   isolation: isolate;
   height: var(--header-h);
   display: flex;
@@ -25,8 +27,9 @@
     inset: 0;
     z-index: -1;
     background: var(--header-bg);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--header-edge);
+    backdrop-filter: blur(18px) saturate(160%);
+    -webkit-backdrop-filter: blur(18px) saturate(160%);
     box-shadow: var(--header-shadow);
     opacity: 0;
     transition: opacity 0.3s ease;
@@ -43,10 +46,7 @@
 }
 
 :host(.is-menu-open) .header::before {
-  background: var(--menu-bg);
-  box-shadow: none;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
+  opacity: 0;
 }
 
 .header-left,
@@ -61,25 +61,24 @@
   gap: 12px;
 }
 
-.brand-logo {
+.brand-mark {
   display: block;
-  width: 35px;
-  height: 35px;
-  background-color: var(--logo-color, #fff);
-  -webkit-mask: url('/assets/images/logo.svg') center / contain no-repeat;
-  mask: url('/assets/images/logo.svg') center / contain no-repeat;
-}
+  width: 7.5rem;
+  height: auto;
+  translate: 0 5px;
+  transition: transform 0.25s var(--spring);
 
-:host {
-  --logo-color: var(--outline);
+  @media (max-width: 768px) {
+    width: 6rem;
+  }
 }
 
 .brand-link {
   display: inline-flex;
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
 
-  &:hover {
-    transform: translateX(2px);
+  &:hover .brand-mark {
+    transform: rotate(-3deg) translateY(-1px);
   }
 }
 
@@ -93,7 +92,7 @@
 // so clicking right on the edge still navigates
 .nav-button {
   --btn-ink: var(--outline);
-  --btn-bg: #fff;
+  --btn-bg: var(--white);
   --btn-fg: var(--ink);
   --btn-hover: var(--tag-bg);
   --btn-hover-fg: var(--ink);
@@ -149,7 +148,7 @@
   &.active .btn-text {
     background: var(--c-cyan);
     color: var(--ink);
-    box-shadow: inset -3px -3px 0 rgba(0, 0, 0, 0.12);
+    box-shadow: inset -3px -3px 0 color-mix(in srgb, var(--ink) 12%, transparent);
   }
 
   &.mobile {
@@ -193,15 +192,16 @@
 }
 
 :host-context([data-theme='dark']) {
-  --header-bg: rgb(22 34 30 / 0.6);
-  --header-shadow: 0 8px 24px rgb(0 0 0 / 0.5);
-  --menu-bg: rgb(22 34 30 / 0.97);
-  --menu-shadow: 0 10px 25px rgb(0 0 0 / 0.6);
+  --header-bg: color-mix(in srgb, var(--bg) 35%, transparent);
+  --menu-bg: color-mix(in srgb, var(--bg) 55%, transparent);
+  --header-edge: color-mix(in srgb, var(--white) 12%, transparent);
+  --header-shadow: 0 8px 24px color-mix(in srgb, var(--ink) 50%, transparent);
+  --menu-shadow: 0 10px 25px color-mix(in srgb, var(--ink) 60%, transparent);
 
   .nav-button {
     --btn-ink: var(--shadow);
     --btn-border: var(--line);
-    --btn-bg: var(--bg-alt);
+    --btn-bg: var(--surface);
     --btn-fg: var(--on-dark);
     --btn-hover: var(--tag-bg);
     --btn-hover-fg: var(--on-dark);
@@ -228,11 +228,13 @@
 
 .nav-mobile {
   position: absolute;
-  top: 100%;
+  top: 0;
   left: 0;
   width: 100%;
   background: var(--menu-bg);
-  border-bottom: 2px solid var(--c-cyan);
+  border-bottom: 1px solid var(--header-edge);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
   box-shadow: var(--menu-shadow);
   max-height: 0;
   overflow: hidden;
@@ -244,7 +246,7 @@
     visibility 0.35s;
 
   &.is-open {
-    max-height: 320px;
+    max-height: calc(320px + var(--header-h));
     opacity: 1;
     visibility: visible;
   }
@@ -258,17 +260,13 @@
   display: flex;
   flex-direction: column;
   gap: 14px;
-  padding: 22px 24px;
+  padding: calc(var(--header-h) + 22px) 24px 22px;
 }
 
 .nav-button:focus-visible,
 .brand-link:focus-visible {
   outline: 3px solid var(--focus);
   outline-offset: 3px;
-  border-radius: 8px;
-  box-shadow: 0 0 0 3px #fff;
-}
-
-:host-context([data-theme='dark']) {
-  --logo-color: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px var(--white);
 }

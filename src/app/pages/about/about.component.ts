@@ -6,5 +6,6 @@ import { AboutIntroComponent } from '../../components/about-intro/about-intro.co
   selector: 'app-about',
   imports: [PageBannerComponent, AboutIntroComponent],
   templateUrl: './about.component.html',
+  styleUrl: './about.component.scss',
 })
 export class AboutComponent {}

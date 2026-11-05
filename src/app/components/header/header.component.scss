@@ -63,13 +63,13 @@
 
 .brand-mark {
   display: block;
-  width: 7.5rem;
+  width: 6.25rem;
   height: auto;
-  translate: 0 5px;
+  padding: 0.1rem;
   transition: transform 0.25s var(--spring);
 
   @media (max-width: 768px) {
-    width: 6rem;
+    width: 5.75rem;
   }
 }
 

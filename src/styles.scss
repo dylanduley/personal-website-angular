@@ -167,8 +167,7 @@ html:has(dialog.lightbox[open]) {
 .section--grid {
   background-color: var(--bg-alt);
   background-image:
-    var(--grain),
-    linear-gradient(to right, var(--grid) 1px, transparent 1px),
+    var(--grain), linear-gradient(to right, var(--grid) 1px, transparent 1px),
     linear-gradient(to bottom, var(--grid) 1px, transparent 1px);
   background-size:
     220px 220px,

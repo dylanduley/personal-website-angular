@@ -151,11 +151,6 @@ html:has(dialog.lightbox[open]) {
   overflow: hidden;
 }
 
-::selection {
-  background: var(--c-sun);
-  color: var(--ink);
-}
-
 .container {
   width: min(1150px, 100% - 2.5rem);
   margin-inline: auto;

@@ -9,11 +9,11 @@ export interface Project {
 
 export const PROJECTS: Project[] = [
   {
-    title: 'Titanium — Life Insurance Policy Management',
+    title: 'Insurance Policy Management Platform',
     category: 'Angular + Spring',
     description:
-      'Developed responsive frontend dashboards for managing policies and API-driven forms with validation. Implemented backend services for policy lifecycle management, including APIs, services, and secure data processing.',
-    image: '/assets/images/web/titanium.webp',
+      'At my current job, I work across the full stack of an insurance policy platform. On the frontend, I build responsive dashboards and validated, API-driven forms. On the backend, I build the services that manage the policy lifecycle and handle data securely.',
+    image: '/assets/images/web/life-insurance.webp',
   },
   {
     title: 'Doodle Plaza',

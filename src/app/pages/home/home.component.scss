@@ -3,14 +3,12 @@
   --hero-art: url('/assets/images/web/hero-day.webp');
   --hero-sky: var(--night);
   --hero-pos: center;
-  --hero-wash: radial-gradient(
-    ellipse 62% 58% at 52% 55%,
-    color-mix(in srgb, var(--night) 54%, transparent) 0%,
-    color-mix(in srgb, var(--night) 42%, transparent) 60%,
-    color-mix(in srgb, var(--night) 4%, transparent) 100%
+  --hero-wash: linear-gradient(transparent, transparent);
+  --hero-tint: linear-gradient(
+    color-mix(in srgb, var(--night) 22%, var(--white)),
+    color-mix(in srgb, var(--night) 22%, var(--white))
   );
-  --hero-tint: linear-gradient(transparent, transparent);
-  --hero-blend: normal;
+  --hero-blend: multiply;
   --hero-grid: color-mix(in srgb, var(--white) 22%, transparent);
 
   position: relative;
@@ -26,10 +24,6 @@
 
   @media (max-width: 800px) {
     --hero-art: url('/assets/images/web/hero-day-sm.webp');
-    --hero-wash: linear-gradient(
-      color-mix(in srgb, var(--night) 55%, transparent),
-      color-mix(in srgb, var(--night) 55%, transparent)
-    );
   }
 
   &::before {

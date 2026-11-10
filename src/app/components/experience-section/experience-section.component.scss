@@ -8,7 +8,7 @@
     color-mix(in srgb, var(--bg) 20%, transparent),
     transparent 20%
   );
-  --exp-img: url('/assets/images/web/experience-day.webp');
+  --exp-img: url('/assets/images/web/experience.webp');
 
   isolation: isolate;
   background: var(--bg-alt);
@@ -25,22 +25,17 @@
   }
 
   @media (max-width: 800px) {
-    --exp-img: url('/assets/images/web/experience-day-sm.webp');
+    --exp-img: url('/assets/images/web/experience-sm.webp');
   }
 }
 
 :host-context([data-theme='dark']) .experience-section {
-  --exp-img: url('/assets/images/web/experience-twilight.webp');
   --exp-wash: linear-gradient(
     to bottom,
     color-mix(in srgb, var(--bg) 75%, transparent),
     color-mix(in srgb, var(--bg) 40%, transparent) 55%,
     color-mix(in srgb, var(--bg) 20%, transparent)
   );
-
-  @media (max-width: 800px) {
-    --exp-img: url('/assets/images/web/experience-twilight-sm.webp');
-  }
 }
 
 .timeline {

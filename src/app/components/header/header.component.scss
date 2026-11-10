@@ -88,8 +88,6 @@
   }
 }
 
-// the link itself never moves, only .btn-text does. ::after covers the gap
-// so clicking right on the edge still navigates
 .nav-button {
   --btn-ink: var(--outline);
   --btn-bg: var(--white);
@@ -97,12 +95,10 @@
   --btn-hover: var(--tag-bg);
   --btn-hover-fg: var(--ink);
 
-  position: relative;
   display: inline-block;
   padding: 0;
   border: 0;
-  border-radius: 8px;
-  background: var(--btn-ink);
+  background: none;
   font: inherit;
   font-size: 0.95rem;
   font-weight: 700;
@@ -110,13 +106,6 @@
   text-decoration: none;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
-
-  &::after {
-    content: '';
-    position: absolute;
-    inset: -0.45em -0.2em -0.2em -0.35em;
-    z-index: 3;
-  }
 
   .btn-text {
     display: flex;
@@ -127,28 +116,20 @@
     border-radius: 8px;
     background: var(--btn-bg);
     color: var(--btn-fg);
-    transform: translate(-0.1em, -0.18em);
+    box-shadow: 2px 2px 0 var(--btn-ink);
     transition:
-      transform 0.15s var(--spring),
       background-color 0.2s ease,
       color 0.2s ease;
   }
 
   &:hover .btn-text {
-    transform: translate(-0.14em, -0.26em);
     background: var(--btn-hover);
     color: var(--btn-hover-fg);
-  }
-
-  &:active .btn-text {
-    transform: none;
-    transition: transform 0.05s ease;
   }
 
   &.active .btn-text {
     background: var(--c-cyan);
     color: var(--ink);
-    box-shadow: inset -3px -3px 0 var(--shadow-soft);
   }
 
   &.mobile {
@@ -269,4 +250,8 @@
   outline-offset: 3px;
   border-radius: 50%;
   box-shadow: 0 0 0 3px var(--white);
+}
+
+.nav-button:focus-visible {
+  border-radius: 10px;
 }

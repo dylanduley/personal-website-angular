@@ -5,51 +5,51 @@
             <stop offset="0" stop-color="#f0fcf6"/>
             <stop offset="1" stop-color="#7ce8c1"/>
         </linearGradient>
-        <path id="Path-copy-2" fill="url(#g1)" fill-rule="evenodd" stroke="#1f2d3d" stroke-width="9" stroke-linejoin="round" d="M 665.185059 908.635986 L 819.58728 870.359985 L 1004.886353 1.878357 L 864.778625 32.146484 L 665.185059 908.635986 Z"/>
+        <path id="Path-copy-2" fill="url(#g1)" fill-rule="evenodd" stroke="#1f2d3d" stroke-width="7" stroke-linejoin="round" d="M 665.185059 908.635986 L 819.58728 870.359985 L 1004.886353 1.878357 L 864.778625 32.146484 L 665.185059 908.635986 Z"/>
         <linearGradient id="g2" x1="813.796875" y1="2.0" x2="1117.773438" y2="962.434387" gradientUnits="userSpaceOnUse">
             <stop offset="0" stop-color="#3cd0b8"/>
             <stop offset="0.55" stop-color="#21c4af"/>
             <stop offset="1" stop-color="#299fc4"/>
         </linearGradient>
-        <path id="Path-copy-3" fill="url(#g2)" fill-rule="evenodd" stroke="#1f2d3d" stroke-width="9" stroke-linejoin="round" d="M 1117.773438 89.064941 L 933.527161 962.434387 L 813.796875 876.72168 L 979.934143 118.75177 L 1005 2 L 1117.773438 89.064941 Z"/>
-        <path id="Rectangle-copy-2" fill="#239dad" fill-rule="evenodd" stroke="#1f2d3d" stroke-width="9" stroke-linejoin="round" d="M 796.665344 991.910706 L 934.5047 962.223877 L 813.51123 870.64563 L 665.204102 908.724548 Z"/>
+        <path id="Path-copy-3" fill="url(#g2)" fill-rule="evenodd" stroke="#1f2d3d" stroke-width="7" stroke-linejoin="round" d="M 1117.773438 89.064941 L 933.527161 962.434387 L 813.796875 876.72168 L 979.934143 118.75177 L 1005 2 L 1117.773438 89.064941 Z"/>
+        <path id="Rectangle-copy-2" fill="#239dad" fill-rule="evenodd" stroke="#1f2d3d" stroke-width="7" stroke-linejoin="round" d="M 796.665344 991.910706 L 934.5047 962.223877 L 813.51123 870.64563 L 665.204102 908.724548 Z"/>
     </g>
     <g id="Group-copy-2">
-        <path id="Rectangle" fill="#239dad" fill-rule="evenodd" stroke="#1f2d3d" stroke-width="9" stroke-linejoin="round" d="M 539 809 L 684 721 L 684 598 L 539 679 Z"/>
+        <path id="Rectangle" fill="#239dad" fill-rule="evenodd" stroke="#1f2d3d" stroke-width="7" stroke-linejoin="round" d="M 539 809 L 684 721 L 684 598 L 539 679 Z"/>
         <linearGradient id="g3" x1="297.0" y1="188.0" x2="791.0" y2="495.0" gradientUnits="userSpaceOnUse">
             <stop offset="0" stop-color="#2ab0b6"/>
             <stop offset="1" stop-color="#186e8b"/>
         </linearGradient>
-        <path id="Path-copy-4" fill="url(#g3)" fill-rule="evenodd" stroke="#1f2d3d" stroke-width="9" stroke-linejoin="round" d="M 791 311 L 791 188 L 297 425 L 447 495 L 791 311 Z"/>
+        <path id="Path-copy-4" fill="url(#g3)" fill-rule="evenodd" stroke="#1f2d3d" stroke-width="7" stroke-linejoin="round" d="M 791 311 L 791 188 L 297 425 L 447 495 L 791 311 Z"/>
         <linearGradient id="g4" x1="0.0" y1="430.0" x2="539.0" y2="809.0" gradientUnits="userSpaceOnUse">
             <stop offset="0" stop-color="#f0fcf6"/>
             <stop offset="1" stop-color="#7ce8c1"/>
         </linearGradient>
-        <path id="path1" fill="url(#g4)" fill-rule="evenodd" stroke="#1f2d3d" stroke-width="9" stroke-linejoin="round" d="M 539 809 L 539 679 L 0 430 L 0 556 L 539 809 Z"/>
+        <path id="path1" fill="url(#g4)" fill-rule="evenodd" stroke="#1f2d3d" stroke-width="7" stroke-linejoin="round" d="M 539 809 L 539 679 L 0 430 L 0 556 L 539 809 Z"/>
         <linearGradient id="g5" x1="0.0" y1="136.0" x2="791.0" y2="679.0" gradientUnits="userSpaceOnUse">
             <stop offset="0" stop-color="#4cdca7"/>
             <stop offset="0.55" stop-color="#3cd0b8"/>
             <stop offset="1" stop-color="#35b9e8"/>
         </linearGradient>
-        <path id="path2" fill="url(#g5)" fill-rule="evenodd" stroke="#1f2d3d" stroke-width="9" stroke-linejoin="round" d="M 791 190 L 298 425 L 447 494 L 684 598 L 540 679 L 0 431 L 645 136 L 791 190 Z"/>
+        <path id="path2" fill="url(#g5)" fill-rule="evenodd" stroke="#1f2d3d" stroke-width="7" stroke-linejoin="round" d="M 791 190 L 298 425 L 447 494 L 684 598 L 540 679 L 0 431 L 645 136 L 791 190 Z"/>
     </g>
     <g id="Group-copy">
-        <path id="path3" fill="#4cdca7" fill-rule="evenodd" stroke="#1f2d3d" stroke-width="9" stroke-linejoin="round" d="M 1277 136 L 1132 224 L 1132 347 L 1277 266 Z"/>
+        <path id="path3" fill="#4cdca7" fill-rule="evenodd" stroke="#1f2d3d" stroke-width="7" stroke-linejoin="round" d="M 1277 136 L 1132 224 L 1132 347 L 1277 266 Z"/>
         <linearGradient id="g6" x1="1025.0" y1="450.0" x2="1519.0" y2="757.0" gradientUnits="userSpaceOnUse">
             <stop offset="0" stop-color="#2ab0b6"/>
             <stop offset="1" stop-color="#186e8b"/>
         </linearGradient>
-        <path id="path4" fill="url(#g6)" fill-rule="evenodd" stroke="#1f2d3d" stroke-width="9" stroke-linejoin="round" d="M 1025 634 L 1025 757 L 1519 520 L 1369 450 L 1025 634 Z"/>
+        <path id="path4" fill="url(#g6)" fill-rule="evenodd" stroke="#1f2d3d" stroke-width="7" stroke-linejoin="round" d="M 1025 634 L 1025 757 L 1519 520 L 1369 450 L 1025 634 Z"/>
         <linearGradient id="g7" x1="1277.0" y1="136.0" x2="1816.0" y2="515.0" gradientUnits="userSpaceOnUse">
             <stop offset="0" stop-color="#f0fcf6"/>
             <stop offset="1" stop-color="#7ce8c1"/>
         </linearGradient>
-        <path id="path5" fill="url(#g7)" fill-rule="evenodd" stroke="#1f2d3d" stroke-width="9" stroke-linejoin="round" d="M 1277 136 L 1277 266 L 1816 515 L 1816 389 L 1277 136 Z"/>
+        <path id="path5" fill="url(#g7)" fill-rule="evenodd" stroke="#1f2d3d" stroke-width="7" stroke-linejoin="round" d="M 1277 136 L 1277 266 L 1816 515 L 1816 389 L 1277 136 Z"/>
         <linearGradient id="g8" x1="1025.0" y1="266.0" x2="1816.0" y2="809.0" gradientUnits="userSpaceOnUse">
             <stop offset="0" stop-color="#4cdca7"/>
             <stop offset="0.55" stop-color="#3cd0b8"/>
             <stop offset="1" stop-color="#35b9e8"/>
         </linearGradient>
-        <path id="path6" fill="url(#g8)" fill-rule="evenodd" stroke="#1f2d3d" stroke-width="9" stroke-linejoin="round" d="M 1171 809 L 1816 514 L 1276 266 L 1132 347 L 1369 451 L 1518 520 L 1025 755 L 1171 809 Z"/>
+        <path id="path6" fill="url(#g8)" fill-rule="evenodd" stroke="#1f2d3d" stroke-width="7" stroke-linejoin="round" d="M 1171 809 L 1816 514 L 1276 266 L 1132 347 L 1369 451 L 1518 520 L 1025 755 L 1171 809 Z"/>
     </g>
 <metadata></metadata></svg>

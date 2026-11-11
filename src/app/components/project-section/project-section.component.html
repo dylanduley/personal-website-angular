@@ -19,11 +19,25 @@
               tabindex="-1"
               aria-hidden="true"
             >
-              <img [src]="project.image" alt="" loading="lazy" decoding="async" />
+              <img
+                [src]="project.image"
+                [attr.srcset]="project.srcset"
+                sizes="(max-width: 760px) 100vw, 380px"
+                alt=""
+                loading="lazy"
+                decoding="async"
+              />
             </a>
           } @else {
             <div class="project-media">
-              <img [src]="project.image" [alt]="project.title" loading="lazy" decoding="async" />
+              <img
+                [src]="project.image"
+                [attr.srcset]="project.srcset"
+                sizes="(max-width: 760px) 100vw, 380px"
+                [alt]="project.title"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
           }
 

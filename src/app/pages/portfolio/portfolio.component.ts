@@ -13,6 +13,5 @@ import { ArtGalleryComponent } from '../../components/art-gallery/art-gallery.co
     ArtGalleryComponent,
   ],
   templateUrl: './portfolio.component.html',
-  styleUrl: './portfolio.component.scss',
 })
 export class PortfolioComponent {}

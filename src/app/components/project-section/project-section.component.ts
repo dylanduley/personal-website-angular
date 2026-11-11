@@ -11,5 +11,8 @@ import { PROJECTS } from '../../data/projects';
 })
 export class ProjectSectionComponent {
   readonly header = input('Projects');
-  readonly projects = PROJECTS;
+  readonly projects = PROJECTS.map((project) => ({
+    ...project,
+    srcset: `${project.image.replace(/\.webp$/, '-480.webp')} 480w, ${project.image} 800w`,
+  }));
 }

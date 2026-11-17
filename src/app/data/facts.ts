@@ -7,8 +7,8 @@ export interface Fact {
 }
 
 export const FACTS: Fact[] = [
-  { icon: 'code', value: '2023', label: 'Year I started engineering at LIDP' },
+  { icon: 'code', value: '2023', label: 'Started as a software engineer at LIDP' },
   { icon: 'graduation-cap', value: 'UF', label: 'B.S. Computer Science in progress' },
   { icon: 'certificate', value: '4', label: 'LOMA designations: FLMI, ACS, AIRC, ALMI' },
-  { icon: 'paintbrush', value: '∞', label: 'Sketches started (mostly unfinished)' },
+  { icon: 'paintbrush', value: 'Art', label: 'Painting and sketching outside of work' },
 ];

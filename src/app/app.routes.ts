@@ -16,7 +16,8 @@ export const routes: Routes = [
     title: 'Dylan Duley',
     data: {
       seo: {
-        description: 'Dylan Duley, full stack software engineer and artist. Skills and experience.',
+        description:
+          'Dylan Duley, senior full stack software engineer. Skills, experience and education.',
       } satisfies RouteSeo,
     },
   },
@@ -27,7 +28,7 @@ export const routes: Routes = [
     data: {
       seo: {
         description:
-          'About Dylan Duley: senior full stack engineer at LIDP, UF computer science student, and digital painter.',
+          'About Dylan Duley: senior full stack engineer at LIDP, UF computer science student and artist.',
       } satisfies RouteSeo,
     },
   },
@@ -38,7 +39,7 @@ export const routes: Routes = [
     data: {
       seo: {
         description:
-          'Projects Dylan Duley has built at work and for fun, plus paintings and sketches.',
+          'Professional and personal software projects by Dylan Duley, plus paintings and sketches.',
       } satisfies RouteSeo,
     },
   },

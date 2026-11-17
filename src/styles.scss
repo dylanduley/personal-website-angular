@@ -60,16 +60,16 @@
   --accent-text: var(--c-ocean);
   --focus: var(--c-ocean);
   --wave-line: var(--line);
-  --grid: color-mix(in srgb, var(--ink) 6%, transparent);
   --marker: color-mix(in srgb, var(--c-sun) 50%, transparent);
   color-scheme: light;
 
-  --border: 2px solid var(--line);
-  --radius-sketch: 18px 7px 20px 9px / 9px 20px 7px 18px;
-  --pop: 4px 4px 0 var(--shadow);
+  --border: 1.5px solid var(--line);
+  --radius-sketch: 14px;
+  --pop: 0 1px 2px var(--shadow-soft), 0 12px 28px -16px var(--shadow-strong);
   --shadow-soft: color-mix(in srgb, var(--ink) 14%, transparent);
   --shadow-strong: color-mix(in srgb, var(--ink) 60%, transparent);
   --spring: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
 
   --font-body: 'Inter', system-ui, -apple-system, sans-serif;
   --font-hand: 'Caveat', 'Comic Sans MS', cursive;
@@ -92,7 +92,6 @@
   --accent-text: #9cc9d6;
   --focus: var(--c-cyan);
   --wave-line: color-mix(in srgb, var(--c-cyan) 70%, transparent);
-  --grid: color-mix(in srgb, var(--white) 5%, transparent);
   --marker: color-mix(in srgb, var(--c-cyan) 45%, transparent);
   color-scheme: dark;
 }
@@ -143,7 +142,7 @@ a {
 }
 
 :focus-visible {
-  outline: 3px dashed var(--focus);
+  outline: 3px solid var(--focus);
   outline-offset: 4px;
 }
 
@@ -163,17 +162,8 @@ html:has(dialog.lightbox[open]) {
 
 .section--grid {
   background-color: var(--bg);
-  background-image:
-    var(--grain), linear-gradient(to right, var(--grid) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--grid) 1px, transparent 1px);
-  background-size:
-    220px 220px,
-    28px 28px,
-    28px 28px;
-}
-
-.section--art {
-  --sticker-bg: var(--c-coral);
+  background-image: var(--grain);
+  background-size: 220px 220px;
 }
 
 .section--inked::before {
@@ -197,8 +187,8 @@ html:has(dialog.lightbox[open]) {
   border-radius: var(--radius-sketch);
   box-shadow: var(--pop);
   transition:
-    transform 0.2s var(--spring),
-    box-shadow 0.2s var(--spring);
+    transform 0.2s var(--ease),
+    box-shadow 0.2s var(--ease);
 }
 
 .banner-art {
@@ -207,7 +197,7 @@ html:has(dialog.lightbox[open]) {
   max-height: 100%;
   width: auto;
   height: auto;
-  filter: drop-shadow(3px 3px 0 var(--shadow-strong));
+  filter: drop-shadow(0 10px 18px color-mix(in srgb, var(--ink) 30%, transparent));
   transition: transform 0.3s ease;
 
   &:hover {
@@ -216,18 +206,21 @@ html:has(dialog.lightbox[open]) {
 }
 
 .sticker {
-  display: inline-block;
-  padding: 0.3rem 0.8rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
   font-size: 0.8rem;
-  font-weight: 800;
-  letter-spacing: 0.18em;
+  font-weight: 700;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--ink);
-  background: var(--sticker-bg, var(--c-cyan));
-  border: 2px solid var(--outline);
-  border-radius: 8px 4px 9px 5px / 5px 9px 4px 8px;
-  box-shadow: 2px 2px 0 var(--outline);
-  transform: rotate(-2deg);
+  color: var(--eyebrow, var(--accent-text));
+
+  &::before {
+    content: '';
+    width: 1.75rem;
+    height: 2px;
+    background: currentColor;
+  }
 }
 
 .marker {
@@ -249,41 +242,27 @@ html:has(dialog.lightbox[open]) {
 }
 
 .comic-btn {
-  position: relative;
   display: inline-block;
-  border-radius: 10px;
-  background: var(--outline);
   text-decoration: none;
-  font-weight: 800;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  font-weight: 700;
   cursor: pointer;
   border: 0;
   padding: 0;
+  background: none;
 
   > span {
     display: flex;
     align-items: center;
     gap: 0.5rem;
     padding: 0.7rem 1.3rem;
-    color: var(--ink);
-    background: var(--btn-bg, var(--c-sun));
-    border: 2px solid var(--outline);
-    border-radius: 10px;
-    transform: translate(-0.14em, -0.22em);
-    transition:
-      transform 0.15s var(--spring),
-      background-color 0.2s ease;
+    color: var(--white);
+    background: var(--c-ocean);
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
   }
 
   &:hover > span {
-    transform: translate(-0.18em, -0.3em);
-    background: color-mix(in srgb, var(--c-sun) 75%, var(--c-coral));
-  }
-
-  &:active > span {
-    transform: none;
-    transition-duration: 0.05s;
+    background: color-mix(in srgb, var(--c-ocean) 82%, var(--ink));
   }
 }
 
@@ -299,24 +278,13 @@ html:has(dialog.lightbox[open]) {
     font-size: 1.2rem;
     color: var(--ink);
     background: var(--white);
-    border: 2px solid var(--outline);
+    border: 1.5px solid var(--outline);
     border-radius: 50%;
-    box-shadow: 2px 2px 0 var(--outline);
     text-decoration: none;
-    transition:
-      transform 0.15s var(--spring),
-      box-shadow 0.15s var(--spring),
-      background-color 0.2s ease;
+    transition: background-color 0.2s ease;
 
     &:hover {
       background: var(--c-cyan);
-      transform: translate(-1px, -1px);
-      box-shadow: 3px 3px 0 var(--outline);
-    }
-
-    &:active {
-      transform: none;
-      box-shadow: 0 0 0 var(--outline);
     }
   }
 }
@@ -331,7 +299,6 @@ html:has(dialog.lightbox[open]) {
   }
 
   .banner-art:hover,
-  .social-links a:hover,
   .brand-link:hover .brand-mark,
   .project-media:hover img {
     transform: none !important;

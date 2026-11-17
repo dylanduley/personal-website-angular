@@ -12,9 +12,8 @@
 .card-accent {
   position: absolute;
   inset: 0 0 auto 0;
-  height: 10px;
+  height: 4px;
   background: var(--accent, var(--c-cyan));
-  border-bottom: 2px solid var(--line);
 }
 
 .card-title {

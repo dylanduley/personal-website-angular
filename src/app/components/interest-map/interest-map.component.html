@@ -1,0 +1,127 @@
+<section class="section section--grid section--inked" id="interests">
+  <div class="container">
+    <app-section-header
+      label="Interests"
+      header="Things I Like"
+      description="Each line is a category of things I like. Hover a station to learn more."
+    />
+
+    <div class="comic-card map-card">
+      <div class="map-title" aria-hidden="true">
+        <strong>Map of Interests</strong>
+        <span>Things I like, by line</span>
+      </div>
+
+      <div #scroller class="map-scroll">
+        <div class="map">
+          <svg
+            [attr.viewBox]="'0 0 ' + width + ' ' + height"
+            role="group"
+            aria-label="Transit map of things I like"
+          >
+            <defs>
+              <pattern
+                id="map-grid"
+                [attr.width]="cell"
+                [attr.height]="cell"
+                patternUnits="userSpaceOnUse"
+              >
+                <path class="grid-line" [attr.d]="'M' + cell + ' 0 H0 V' + cell" />
+              </pattern>
+            </defs>
+            <rect [attr.width]="width" [attr.height]="height" fill="url(#map-grid)" />
+
+            @for (area of areas; track $index) {
+              <path
+                [class]="'area area--' + area.kind"
+                [attr.d]="area.path"
+                [attr.transform]="'scale(' + cell + ')'"
+              />
+            }
+
+            @for (line of lines; track line.name) {
+              <path
+                class="line"
+                [class.is-dimmed]="isDimmed([line])"
+                [attr.d]="line.d"
+                [style.stroke]="line.color"
+              />
+            }
+
+            @for (station of stations; track station.id) {
+              <g
+                class="station"
+                [class.is-active]="activeStation() === station"
+                [class.is-dimmed]="isDimmed(station.lines)"
+                tabindex="0"
+                role="img"
+                [attr.aria-label]="station.name + ': ' + station.note"
+                (mouseenter)="activeStation.set(station)"
+                (focus)="activeStation.set(station)"
+                (click)="activeStation.set(station)"
+                (mouseleave)="hide(station)"
+                (blur)="hide(station)"
+              >
+                <circle class="station-hit" [attr.cx]="station.x" [attr.cy]="station.y" r="16" />
+                @if (station.lines.length > 1) {
+                  <circle class="station-dot" [attr.cx]="station.x" [attr.cy]="station.y" r="9" />
+                } @else {
+                  <rect
+                    class="station-dot"
+                    [attr.x]="station.x - 6"
+                    [attr.y]="station.y - 6"
+                    width="12"
+                    height="12"
+                    rx="2"
+                  />
+                }
+              </g>
+            }
+          </svg>
+
+          @if (tooltip(); as tip) {
+            <div
+              class="comic-card tooltip"
+              [class.is-below]="tip.below"
+              [attr.data-align]="tip.align"
+              [style.left.%]="tip.left"
+              [style.top.%]="tip.top"
+              aria-hidden="true"
+            >
+              <span class="tooltip-lines">
+                @for (line of tip.station.lines; track line.name) {
+                  <span class="tooltip-line">
+                    <span class="swatch" [style.background]="line.color"></span>
+                    {{ line.name }}
+                  </span>
+                }
+              </span>
+              <strong>{{ tip.station.name }}</strong>
+              <p>{{ tip.station.note }}</p>
+            </div>
+          }
+        </div>
+      </div>
+
+      <p class="map-hint">Swipe to explore the map</p>
+
+      <ul class="legend">
+        @for (line of lines; track line.name) {
+          <li>
+            <button
+              type="button"
+              [class.is-dimmed]="isDimmed([line])"
+              (mouseenter)="activeLine.set(line)"
+              (mouseleave)="activeLine.set(null)"
+              (focus)="activeLine.set(line)"
+              (blur)="activeLine.set(null)"
+            >
+              <span class="swatch" [style.background]="line.color"></span>
+              {{ line.name }}
+            </button>
+          </li>
+        }
+      </ul>
+    </div>
+  </div>
+</section>

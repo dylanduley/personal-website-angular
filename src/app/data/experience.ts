@@ -15,10 +15,10 @@ export const EXPERIENCE: Experience[] = [
     logo: '/assets/images/web/LIDP.webp',
     logoAlt: 'LIDP logo',
     description:
-      'Developed Angular UI and Java Spring backend solutions for life insurance workflows. Built reusable components, REST APIs, automation tools, and data migration solutions to improve efficiency. Collaborated with teams to deliver solutions and support architectural decisions.',
+      'Build Angular frontends and Java Spring services for a life insurance policy management platform. Develop reusable UI components, REST APIs, automation tooling and data migration processes, and contribute to architectural decisions alongside cross-functional teams.',
   },
   {
-    role: 'B.S. Computer Science (In Progress)',
+    role: 'B.S. in Computer Science',
     org: 'University of Florida',
     period: '2026 – Present',
     logo: '/assets/images/web/UF.webp',
@@ -32,7 +32,7 @@ export const EXPERIENCE: Experience[] = [
     logoAlt: 'State College of Florida logo',
   },
   {
-    role: 'Certified FLMI, ACS, AIRC, ALMI',
+    role: 'FLMI, ACS, AIRC & ALMI Designations',
     org: 'LOMA',
     period: 'Completed',
     logo: '/assets/images/web/LOMA.webp',
